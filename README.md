@@ -1,10 +1,45 @@
-# Galaxy Unmanned Systems - ROS Drone Simulation Platform
+# Constellation Overwatch SDK
 
-A cross-platform ROS 2 development environment for drone simulation and control, designed to work seamlessly on Windows and macOS using Docker containerization.
+**Government-Owned, Community-Driven Autonomous Systems Integration Platform**
+
+Constellation Overwatch is a modular open systems architecture (MOSA) autonomy and integration stack designed to support distributed command and control of autonomous systems, sensors, and payloads. This SDK provides a common, open-source development environment enabling rapid, secure integration of heterogeneous unmanned systems and payloads into a unified operational picture.
 
 ## 🎯 Project Overview
 
-This repository contains the infrastructure and code for developing drone simulations that can interface with various physics engines including Gazebo, Unity, and Unreal Engine. The project is built on ROS 2 and uses Docker to ensure consistent behavior across different operating systems.
+Constellation Overwatch differentiates itself through its completely open, non-proprietary licensing and ecosystem-driven development model. Leveraging existing government-owned solutions such as the Team Awareness Kit (TAK), this platform enables real-time data fusion, collaborative autonomy, multi-domain sensor integration, and intuitive common operating picture (COP) visualization—without restrictive per-seat licenses or proprietary integration barriers.
+
+**Functionally analogous to**: Anduril's Lattice, Collins Aerospace's RapidEdge, Boeing's collaborative autonomy systems, and commercial industry Pixhawk standards, but with complete open-source accessibility.
+
+## 🔑 Key Attributes
+
+### **Open Architecture Integration**
+- Rapid "plug-and-play" capability for any MOSA-compliant autonomous platform, payload, or sensor
+- Standardized interfaces and communication protocols
+- Hardware-agnostic design supporting diverse unmanned systems
+
+### **Continuous ATO & Secure DevSecOps Environment**
+- Government-owned sandbox for rapid, secure innovation and deployment
+- Containerized development environment with security best practices
+- Automated testing and continuous integration pipelines
+
+### **Collaborative Autonomy & Distributed AI**
+- Real-time tasking and mission autonomy across diverse unmanned platforms
+- Multi-domain sensor fusion and data processing
+- Distributed decision-making capabilities
+
+### **Ecosystem-Driven Development**
+- Community-contributed capabilities and plugins accelerate adoption
+- Modular architecture enabling rapid capability integration
+- Reduced development costs through shared resources
+
+### **Common Operational Picture (COP) Integration**
+- Seamless compatibility with existing government COP frameworks (e.g., TAK)
+- Real-time data visualization and situational awareness
+- Interoperable with existing military command and control systems
+
+## 🎖️ Mission Impact
+
+With new mandates for mass-proliferation of US-made commoditized sUAS, Constellation Overwatch allows government and industry partners to quickly integrate capabilities into operationally relevant scenarios, maximizing innovation and interoperability while eliminating proprietary licensing lock-in. More importantly, it gets UXS tools into the hands of warfighters directly by decentralizing the integration of useful robotics devices into common portable unit-level kits.
 
 ## 🏗️ Architecture
 
@@ -91,32 +126,73 @@ docker-compose exec ros-dev bash
 ros2 --help
 ```
 
-## 📁 Project Structure
+## 📁 SDK Structure
 
 ```
-ROS/
-├── README.md                 # This file
-├── docker/                   # Docker configuration files
-│   ├── Dockerfile.ros        # Main ROS 2 container
-│   ├── Dockerfile.gazebo     # Gazebo simulation container
-│   └── docker-compose.yml    # Multi-container orchestration
-├── src/                      # ROS 2 source code
-│   ├── drone_control/        # Drone control packages
-│   ├── simulation/           # Simulation packages
-│   └── interfaces/           # Custom message definitions
-├── config/                   # Configuration files
-│   ├── params/               # ROS parameters
-│   └── launch/               # Launch files
-├── scripts/                  # Utility scripts
-│   ├── setup.sh              # Environment setup script
-│   └── build.sh              # Build script
-├── docs/                     # Documentation
-│   ├── setup/                # Setup guides
-│   ├── tutorials/            # Tutorials
-│   └── api/                  # API documentation
-└── tests/                    # Test files
-    ├── unit/                 # Unit tests
-    └── integration/          # Integration tests
+constellation-overwatch-sdk/
+├── README.md                    # This file - SDK overview and documentation
+├── LICENSE                      # Apache 2.0 + Constellation Overwatch terms
+├── CONTRIBUTING.md              # Community contribution guidelines
+├── CHANGELOG.md                 # Version history and updates
+├── docker-compose.yml           # Multi-container development environment
+├── constellation-overwatch.code-workspace  # VS Code workspace configuration
+├── sdk/                         # Core SDK components
+│   ├── core/                    # Core SDK functionality
+│   │   ├── autonomy/            # Autonomous system interfaces
+│   │   ├── communication/       # Inter-system communication protocols
+│   │   ├── fusion/              # Sensor fusion and data integration
+│   │   ├── security/            # Security and authentication modules
+│   │   └── orchestration/       # Mission planning and execution
+│   ├── interfaces/              # Standard interfaces and APIs
+│   │   ├── mosa/                # MOSA-compliant interfaces
+│   │   ├── tak/                 # Team Awareness Kit integration
+│   │   ├── mavlink/             # MAVLink protocol support
+│   │   └── common/              # Common interface definitions
+│   ├── plugins/                 # Extensible plugin system
+│   │   ├── sensors/             # Sensor integration plugins
+│   │   ├── payloads/            # Payload management plugins
+│   │   ├── platforms/           # Platform-specific plugins
+│   │   └── custom/              # Custom user plugins
+│   └── tools/                   # Development and deployment tools
+│       ├── simulator/           # Simulation environment tools
+│       ├── configurator/        # System configuration utilities
+│       ├── monitor/             # System monitoring and diagnostics
+│       └── deployer/            # Deployment and packaging tools
+├── examples/                    # Example implementations
+│   ├── basic-drone/             # Basic drone integration example
+│   ├── sensor-fusion/           # Multi-sensor fusion example
+│   ├── swarm-coordination/      # Swarm coordination example
+│   └── mission-planning/        # Mission planning example
+├── samples/                     # Sample code and templates
+│   ├── plugins/                 # Plugin development samples
+│   ├── integrations/            # Integration samples
+│   └── configurations/         # Configuration templates
+├── integrations/                # Third-party integrations
+│   ├── gazebo/                  # Gazebo simulation integration
+│   ├── unity/                   # Unity engine integration
+│   ├── unreal/                  # Unreal Engine integration
+│   └── hardware/                # Hardware platform integrations
+├── docs/                        # Comprehensive documentation
+│   ├── sdk-guide/               # SDK development guide
+│   ├── api-reference/           # API documentation
+│   ├── tutorials/               # Step-by-step tutorials
+│   ├── integration-guides/      # Integration guides
+│   └── security/                # Security documentation
+├── tests/                       # Comprehensive test suite
+│   ├── unit/                    # Unit tests
+│   ├── integration/             # Integration tests
+│   ├── performance/             # Performance tests
+│   └── security/                # Security tests
+├── scripts/                     # Utility scripts
+│   ├── setup.sh                 # Linux/macOS setup script
+│   ├── setup.ps1                # Windows PowerShell setup script
+│   ├── build.sh                 # Build script
+│   ├── test.sh                  # Test runner script
+│   └── deploy.sh                # Deployment script
+└── config/                      # Configuration files
+    ├── development/             # Development environment configs
+    ├── production/              # Production environment configs
+    └── security/                # Security configurations
 ```
 
 ## 🔧 Development Workflow

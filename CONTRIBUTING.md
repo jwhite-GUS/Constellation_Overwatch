@@ -1,6 +1,18 @@
-# Contributing to Galaxy Unmanned Systems ROS Project
+# Contributing to Constellation Overwatch SDK
 
-Thank you for your interest in contributing to our ROS 2 drone simulation platform! This document provides guidelines for contributing to the project.
+Thank you for your interest in contributing to the Constellation Overwatch SDK! This document provides guidelines for contributing to our open-source, government-owned autonomous systems integration platform.
+
+## 🎯 Mission Statement
+
+Constellation Overwatch is a community-driven effort to create a modular open systems architecture (MOSA) for autonomous systems integration. Our goal is to provide open, non-proprietary tools that enable rapid, secure integration of heterogeneous unmanned systems and payloads, eliminating proprietary licensing barriers and fostering innovation.
+
+## 🤝 Community Values
+
+- **Open Source First**: Everything we build is open source and freely available
+- **Government Ownership**: Ensuring government and public access to critical technologies
+- **Community Driven**: Welcoming contributions from all stakeholders
+- **Security Focused**: Maintaining the highest security standards
+- **Interoperability**: Enabling seamless integration across diverse systems
 
 ## Development Process
 
