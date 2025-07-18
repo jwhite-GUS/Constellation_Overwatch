@@ -9,7 +9,7 @@ Advanced tuning system for flight controller optimization and parameter manageme
 
 from .pid_controller import PIDController, PIDGains, RatePIDController
 from .auto_tuner import AutoTuner, TuningMethod, SystemIdentifier
-from .simulation_tuner import SimulationTuner, DroneSimulator, OptimizationAlgorithm
+from .simulation_tuner import SimulationTuner, DroneSimulator, OptimizationMethod
 from .safety_monitor import SafetyMonitor, SafetyLevel, SafetyViolation, OscillationDetector
 from .parameter_manager import ParameterManager, ParameterSet, Parameter
 from .tuning_analyzer import TuningAnalyzer, AnalysisType, PerformanceMetrics, AnalysisResult
@@ -33,7 +33,7 @@ __all__ = [
     # Simulation
     'SimulationTuner',
     'DroneSimulator',
-    'OptimizationAlgorithm',
+    'OptimizationMethod',
     
     # Safety
     'SafetyMonitor',
