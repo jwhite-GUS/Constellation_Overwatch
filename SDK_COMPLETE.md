@@ -63,7 +63,7 @@ constellation-overwatch-sdk/
 
 ## 🌐 **Repository Status**
 
-**GitHub Repository**: https://github.com/jwhite-GUS/GUS_ROS_SIM
+**GitHub Repository**: https://github.com/jwhite-GUS/Constellation_Overwatch
 - ✅ **3 Commits**: Complete transformation history
 - ✅ **Professional Structure**: SDK-ready organization
 - ✅ **Apache 2.0 License**: Open-source with Constellation Overwatch terms
@@ -118,7 +118,7 @@ This transformation positions your project to:
 
 ## 📞 **Support Resources**
 
-- **Repository**: https://github.com/jwhite-GUS/GUS_ROS_SIM
+- **Repository**: https://github.com/jwhite-GUS/Constellation_Overwatch
 - **Documentation**: Complete setup and development guides
 - **Examples**: Working integration examples
 - **Community**: GitHub Issues and Discussions
