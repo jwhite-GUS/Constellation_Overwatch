@@ -1,0 +1,37 @@
+# Gazebo simulation environment
+FROM gus-ros-dev:latest
+
+# Install additional Gazebo plugins and models
+RUN sudo apt-get update && sudo apt-get install -y \
+    gazebo \
+    ros-${ROS_DISTRO}-gazebo-ros \
+    ros-${ROS_DISTRO}-gazebo-plugins \
+    ros-${ROS_DISTRO}-gazebo-msgs \
+    ros-${ROS_DISTRO}-gazebo-dev \
+    ros-${ROS_DISTRO}-xacro \
+    ros-${ROS_DISTRO}-joint-state-publisher \
+    ros-${ROS_DISTRO}-robot-state-publisher \
+    && sudo rm -rf /var/lib/apt/lists/*
+
+# Install drone-specific packages
+RUN sudo apt-get update && sudo apt-get install -y \
+    ros-${ROS_DISTRO}-mavros \
+    ros-${ROS_DISTRO}-mavros-extras \
+    ros-${ROS_DISTRO}-mavros-msgs \
+    && sudo rm -rf /var/lib/apt/lists/*
+
+# Download GeographicLib datasets for MAVROS
+RUN sudo /opt/ros/${ROS_DISTRO}/lib/mavros/install_geographiclib_datasets.sh
+
+# Create Gazebo models directory
+RUN mkdir -p ~/.gazebo/models
+
+# Set Gazebo environment variables
+ENV GAZEBO_MODEL_PATH=/workspace/src/simulation/models:~/.gazebo/models
+ENV GAZEBO_PLUGIN_PATH=/workspace/install/lib
+
+# Add Gazebo setup to bashrc
+RUN echo "export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}" >> ~/.bashrc
+RUN echo "export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}" >> ~/.bashrc
+
+CMD ["/bin/bash"]

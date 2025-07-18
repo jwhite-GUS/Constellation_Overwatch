@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  ros-dev:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.ros
+    container_name: gus-ros-dev
+    volumes:
+      - ./src:/workspace/src
+      - ./config:/workspace/config
+      - ./scripts:/workspace/scripts
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    environment:
+      - DISPLAY=${DISPLAY}
+      - ROS_DOMAIN_ID=42
+      - ROS_LOCALHOST_ONLY=1
+    network_mode: host
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
+    command: /bin/bash
+
+  gazebo-sim:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.gazebo
+    container_name: gus-gazebo-sim
+    volumes:
+      - ./src:/workspace/src
+      - ./config:/workspace/config
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    environment:
+      - DISPLAY=${DISPLAY}
+      - ROS_DOMAIN_ID=42
+      - ROS_LOCALHOST_ONLY=1
+    network_mode: host
+    depends_on:
+      - ros-dev
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
