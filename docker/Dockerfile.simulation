@@ -1,0 +1,44 @@
+# Simulation Environment with Gazebo and AI Integration
+FROM constellation-overwatch-dev:latest
+
+# Install additional simulation packages
+RUN sudo apt-get update && sudo apt-get install -y \
+    gazebo \
+    ros-${ROS_DISTRO}-gazebo-ros \
+    ros-${ROS_DISTRO}-gazebo-plugins \
+    ros-${ROS_DISTRO}-gazebo-msgs \
+    ros-${ROS_DISTRO}-gazebo-dev \
+    ros-${ROS_DISTRO}-xacro \
+    ros-${ROS_DISTRO}-joint-state-publisher \
+    ros-${ROS_DISTRO}-robot-state-publisher \
+    ros-${ROS_DISTRO}-teleop-twist-keyboard \
+    ros-${ROS_DISTRO}-teleop-twist-joy \
+    && sudo rm -rf /var/lib/apt/lists/*
+
+# Install additional simulation tools
+RUN pip3 install \
+    pybullet \
+    gymnasium \
+    stable-baselines3 \
+    unity-gym \
+    mlagents \
+    airsim
+
+# Create Gazebo models directory
+RUN mkdir -p ~/.gazebo/models
+
+# Set Gazebo environment variables
+ENV GAZEBO_MODEL_PATH=/workspace/models/gazebo:~/.gazebo/models
+ENV GAZEBO_PLUGIN_PATH=/workspace/install/lib
+
+# Add Gazebo setup to bashrc
+RUN echo "export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}" >> ~/.bashrc
+RUN echo "export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}" >> ~/.bashrc
+
+# Create simulation-specific directories
+RUN mkdir -p /workspace/simulation/worlds /workspace/simulation/models /workspace/simulation/plugins
+
+# Expose Gazebo ports
+EXPOSE 11345
+
+CMD ["/bin/bash"]

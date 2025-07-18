@@ -46,11 +46,7 @@
             "ms-vscode.cmake-tools",
             "redhat.vscode-yaml",
             "ms-vscode.vscode-json",
-            "ms-vscode-remote.remote-containers",
-            "ms-toolsai.jupyter",
-            "ms-python.flake8",
-            "ms-python.black-formatter",
-            "ms-python.mypy-type-checker"
+            "ms-vscode-remote.remote-containers"
         ]
     }
 }

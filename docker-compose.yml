@@ -1,42 +1,69 @@
 version: '3.8'
 
 services:
-  ros-dev:
+  constellation-dev:
     build:
       context: .
-      dockerfile: docker/Dockerfile.ros
-    container_name: gus-ros-dev
+      dockerfile: docker/Dockerfile.constellation
+    container_name: constellation-overwatch-dev
     volumes:
-      - ./src:/workspace/src
+      - ./sdk:/workspace/sdk
+      - ./examples:/workspace/examples
       - ./config:/workspace/config
       - ./scripts:/workspace/scripts
+      - ./docs:/workspace/docs
+      - ./models:/workspace/models
+      - ./data:/workspace/data
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
     environment:
       - DISPLAY=${DISPLAY}
       - ROS_DOMAIN_ID=42
       - ROS_LOCALHOST_ONLY=1
+      - PYTHONPATH=/workspace/sdk:/workspace
     network_mode: host
     stdin_open: true
     tty: true
     working_dir: /workspace
     command: /bin/bash
 
-  gazebo-sim:
+  ai-trainer:
     build:
       context: .
-      dockerfile: docker/Dockerfile.gazebo
-    container_name: gus-gazebo-sim
+      dockerfile: docker/Dockerfile.ai
+    container_name: constellation-ai-trainer
     volumes:
-      - ./src:/workspace/src
+      - ./sdk:/workspace/sdk
+      - ./examples:/workspace/examples
+      - ./config:/workspace/config
+      - ./models:/workspace/models
+    environment:
+      - PYTHONPATH=/workspace/sdk:/workspace
+      - CUDA_VISIBLE_DEVICES=0
+    runtime: nvidia
+    depends_on:
+      - constellation-dev
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
+
+  simulation:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.simulation
+    container_name: constellation-simulation
+    volumes:
+      - ./sdk:/workspace/sdk
+      - ./examples:/workspace/examples
       - ./config:/workspace/config
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
     environment:
       - DISPLAY=${DISPLAY}
       - ROS_DOMAIN_ID=42
       - ROS_LOCALHOST_ONLY=1
+      - PYTHONPATH=/workspace/sdk:/workspace
     network_mode: host
     depends_on:
-      - ros-dev
+      - constellation-dev
     stdin_open: true
     tty: true
     working_dir: /workspace

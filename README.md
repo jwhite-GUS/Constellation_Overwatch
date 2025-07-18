@@ -4,47 +4,49 @@
 
 Constellation Overwatch is a modular open systems architecture (MOSA) autonomy and integration stack designed to support distributed command and control of autonomous systems, sensors, and payloads. This SDK provides a common, open-source development environment enabling rapid, secure integration of heterogeneous unmanned systems and payloads into a unified operational picture.
 
-## 🎯 Project Overview
+## Project Overview
 
 Constellation Overwatch differentiates itself through its completely open, non-proprietary licensing and ecosystem-driven development model. Leveraging existing government-owned solutions such as the Team Awareness Kit (TAK), this platform enables real-time data fusion, collaborative autonomy, multi-domain sensor integration, and intuitive common operating picture (COP) visualization—without restrictive per-seat licenses or proprietary integration barriers.
 
 **Functionally analogous to**: Anduril's Lattice, Collins Aerospace's RapidEdge, Boeing's collaborative autonomy systems, and commercial industry Pixhawk standards, but with complete open-source accessibility.
 
-## 🔑 Key Attributes
+## Key Attributes
 
-### **Open Architecture Integration**
+### Open Architecture Integration
 - Rapid "plug-and-play" capability for any MOSA-compliant autonomous platform, payload, or sensor
 - Standardized interfaces and communication protocols
 - Hardware-agnostic design supporting diverse unmanned systems
 
-### **Continuous ATO & Secure DevSecOps Environment**
+### Continuous ATO & Secure DevSecOps Environment
 - Government-owned sandbox for rapid, secure innovation and deployment
 - Containerized development environment with security best practices
 - Automated testing and continuous integration pipelines
 
-### **Collaborative Autonomy & Distributed AI**
+### Collaborative Autonomy & Distributed AI
 - Real-time tasking and mission autonomy across diverse unmanned platforms
 - Multi-domain sensor fusion and data processing
-- Distributed decision-making capabilities
+- Distributed decision-making capabilities with machine learning integration
+- Computer vision, natural language processing, and reinforcement learning support
 
-### **Ecosystem-Driven Development**
+### Ecosystem-Driven Development
 - Community-contributed capabilities and plugins accelerate adoption
 - Modular architecture enabling rapid capability integration
 - Reduced development costs through shared resources
 
-### **Common Operational Picture (COP) Integration**
+### Common Operational Picture (COP) Integration
 - Seamless compatibility with existing government COP frameworks (e.g., TAK)
 - Real-time data visualization and situational awareness
 - Interoperable with existing military command and control systems
 
-## 🎖️ Mission Impact
+## Mission Impact
 
 With new mandates for mass-proliferation of US-made commoditized sUAS, Constellation Overwatch allows government and industry partners to quickly integrate capabilities into operationally relevant scenarios, maximizing innovation and interoperability while eliminating proprietary licensing lock-in. More importantly, it gets UXS tools into the hands of warfighters directly by decentralizing the integration of useful robotics devices into common portable unit-level kits.
 
-## 🏗️ Architecture
+## Architecture
 
 - **ROS 2 Humble**: The core robotics framework with cross-platform support
 - **Docker**: Containerized environment for consistent deployment
+- **Artificial Intelligence**: TensorFlow, PyTorch, OpenCV for computer vision and machine learning
 - **Physics Engines**: Integration with Gazebo, Unity, and Unreal Engine
 - **Cross-Platform**: Native support for Windows 10/11 and macOS
 
@@ -90,13 +92,13 @@ code --install-extension ms-vscode.cmake-tools
 code --install-extension ms-vscode.yaml
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Clone the Repository
 
 ```bash
 git clone <repository-url>
-cd ROS
+cd constellation-overwatch-sdk
 ```
 
 ### 2. Verify Docker Installation
@@ -106,7 +108,7 @@ docker --version
 docker-compose --version
 ```
 
-### 3. Build the ROS Environment
+### 3. Build the Development Environment
 
 ```bash
 # Build the Docker containers
@@ -119,18 +121,44 @@ docker-compose up -d
 ### 4. Access the Development Environment
 
 ```bash
-# Enter the ROS container
-docker-compose exec ros-dev bash
+# Enter the development container
+docker-compose exec constellation-dev bash
 
 # Verify ROS 2 installation
 ros2 --help
 ```
 
-## 📁 SDK Structure
+## AI Integration
+
+### Computer Vision Capabilities
+- Object detection and classification
+- Semantic segmentation
+- Visual tracking and SLAM
+- Real-time image processing
+
+### Machine Learning Integration
+- TensorFlow and PyTorch support
+- Edge AI deployment
+- Model training and inference
+- Custom model integration
+
+### Decision Making Systems
+- Rule-based decision trees
+- Reinforcement learning agents
+- Multi-agent coordination
+- Autonomous mission planning
+
+### Natural Language Processing
+- Command interpretation
+- Mission briefing analysis
+- Human-machine interface
+- Automated reporting
+
+## SDK Structure
 
 ```
 constellation-overwatch-sdk/
-├── README.md                    # This file - SDK overview and documentation
+├── README.md                    # SDK overview and documentation
 ├── LICENSE                      # Apache 2.0 + Constellation Overwatch terms
 ├── CONTRIBUTING.md              # Community contribution guidelines
 ├── CHANGELOG.md                 # Version history and updates
@@ -143,6 +171,12 @@ constellation-overwatch-sdk/
 │   │   ├── fusion/              # Sensor fusion and data integration
 │   │   ├── security/            # Security and authentication modules
 │   │   └── orchestration/       # Mission planning and execution
+│   ├── ai/                      # Artificial Intelligence integration
+│   │   ├── computer_vision/     # Computer vision models and algorithms
+│   │   ├── machine_learning/    # Machine learning frameworks
+│   │   ├── decision_making/     # AI decision making systems
+│   │   ├── natural_language/    # Natural language processing
+│   │   └── reinforcement_learning/  # RL agents and training
 │   ├── interfaces/              # Standard interfaces and APIs
 │   │   ├── mosa/                # MOSA-compliant interfaces
 │   │   ├── tak/                 # Team Awareness Kit integration
@@ -152,36 +186,44 @@ constellation-overwatch-sdk/
 │   │   ├── sensors/             # Sensor integration plugins
 │   │   ├── payloads/            # Payload management plugins
 │   │   ├── platforms/           # Platform-specific plugins
+│   │   ├── ai_models/           # AI model plugins
 │   │   └── custom/              # Custom user plugins
 │   └── tools/                   # Development and deployment tools
 │       ├── simulator/           # Simulation environment tools
 │       ├── configurator/        # System configuration utilities
 │       ├── monitor/             # System monitoring and diagnostics
+│       ├── ai_trainer/          # AI model training tools
 │       └── deployer/            # Deployment and packaging tools
 ├── examples/                    # Example implementations
 │   ├── basic-drone/             # Basic drone integration example
 │   ├── sensor-fusion/           # Multi-sensor fusion example
 │   ├── swarm-coordination/      # Swarm coordination example
+│   ├── ai-perception/           # AI perception example
 │   └── mission-planning/        # Mission planning example
 ├── samples/                     # Sample code and templates
 │   ├── plugins/                 # Plugin development samples
 │   ├── integrations/            # Integration samples
+│   ├── ai_models/               # AI model samples
 │   └── configurations/         # Configuration templates
 ├── integrations/                # Third-party integrations
 │   ├── gazebo/                  # Gazebo simulation integration
 │   ├── unity/                   # Unity engine integration
 │   ├── unreal/                  # Unreal Engine integration
+│   ├── tensorflow/              # TensorFlow AI integration
+│   ├── pytorch/                 # PyTorch AI integration
 │   └── hardware/                # Hardware platform integrations
 ├── docs/                        # Comprehensive documentation
 │   ├── sdk-guide/               # SDK development guide
 │   ├── api-reference/           # API documentation
 │   ├── tutorials/               # Step-by-step tutorials
 │   ├── integration-guides/      # Integration guides
+│   ├── ai-guide/                # AI integration guide
 │   └── security/                # Security documentation
 ├── tests/                       # Comprehensive test suite
 │   ├── unit/                    # Unit tests
 │   ├── integration/             # Integration tests
 │   ├── performance/             # Performance tests
+│   ├── ai/                      # AI model tests
 │   └── security/                # Security tests
 ├── scripts/                     # Utility scripts
 │   ├── setup.sh                 # Linux/macOS setup script
@@ -192,10 +234,11 @@ constellation-overwatch-sdk/
 └── config/                      # Configuration files
     ├── development/             # Development environment configs
     ├── production/              # Production environment configs
+    ├── ai_models/               # AI model configurations
     └── security/                # Security configurations
 ```
 
-## 🔧 Development Workflow
+## Development Workflow
 
 ### Setting Up Your Development Environment
 
@@ -226,7 +269,7 @@ ros2 launch simulation gazebo_drone.launch.py
 ./scripts/test.sh
 ```
 
-## 🎮 Simulation Environments
+## Simulation Environments
 
 ### Gazebo Classic
 - **Purpose**: Default physics simulation
@@ -243,7 +286,30 @@ ros2 launch simulation gazebo_drone.launch.py
 - **Setup**: See `docs/setup/unreal-integration.md`
 - **Communication**: ROS 2 bridge
 
-## 🐛 Troubleshooting
+## AI Model Integration
+
+### Loading AI Models
+```python
+from constellation_overwatch.ai import ComputerVisionInterface
+
+# Initialize computer vision model
+cv_model = ComputerVisionInterface("object_detector")
+await cv_model.load_model("models/yolo_v5.onnx", config)
+
+# Run inference
+detections = await cv_model.detect_objects(image)
+```
+
+### Training Custom Models
+```bash
+# Train a custom model
+python sdk/ai/tools/train_model.py --config config/ai_models/custom_detector.yaml
+
+# Deploy trained model
+python sdk/ai/tools/deploy_model.py --model trained_models/custom_detector.pth
+```
+
+## Troubleshooting
 
 ### Common Issues
 
@@ -263,22 +329,24 @@ ros2 launch simulation gazebo_drone.launch.py
 **Performance issues:**
 - Allocate more resources to Docker Desktop
 - Close unnecessary applications
+- Consider using GPU acceleration for AI workloads
 
 ### Getting Help
 
 1. Check the `docs/` directory for detailed guides
 2. Review Docker container logs for error messages
-3. Contact the development team via [communication channel]
+3. Contact the development team via GitHub Issues
 
-## 📚 Documentation
+## Documentation
 
 - [Development Setup Guide](docs/setup/development-setup.md)
 - [Docker Environment Guide](docs/setup/docker-guide.md)
 - [ROS 2 Package Development](docs/tutorials/ros2-packages.md)
+- [AI Integration Guide](docs/tutorials/ai-integration.md)
 - [Simulation Integration](docs/tutorials/simulation-setup.md)
 - [API Documentation](docs/api/README.md)
 
-## 🤝 Contributing
+## Contributing
 
 1. Create a feature branch from `main`
 2. Make your changes following the coding standards
@@ -291,24 +359,26 @@ ros2 launch simulation gazebo_drone.launch.py
 - Use consistent indentation (4 spaces)
 - Include docstrings for all functions
 - Write unit tests for new features
+- Document AI models and algorithms
 
-## 📄 License
+## License
 
-[Add your license information here]
+This project is licensed under the Apache License 2.0 with Constellation Overwatch terms - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Team
+## Team
 
 - **Project Lead**: [Name]
 - **ROS Development**: [Name]
+- **AI Integration**: [Name]
 - **Simulation**: [Name]
 - **Infrastructure**: [Name]
 
-## 🔄 Version History
+## Version History
 
-- **v0.1.0**: Initial project setup and Docker configuration
-- **v0.2.0**: Basic ROS 2 package structure
+- **v1.0.0**: Initial project setup, Docker configuration, and AI integration
 - **v0.3.0**: Gazebo integration
-- **v1.0.0**: First stable release
+- **v0.2.0**: Basic ROS 2 package structure
+- **v0.1.0**: Foundation release
 
 ---
 
