@@ -1,5 +1,8 @@
 # Constellation Overwatch SDK
 
+<!-- COPILOT: Main SDK documentation - maintain professional government-appropriate tone -->
+<!-- COPILOT: This is the primary project documentation viewed by all users and contributors -->
+
 **Government-Owned, Community-Driven Autonomous Systems Integration Platform**
 
 Constellation Overwatch is a modular open systems architecture (MOSA) autonomy and integration stack designed to support distributed command and control of autonomous systems, sensors, and payloads. This SDK provides a common, open-source development environment enabling rapid, secure integration of heterogeneous unmanned systems and payloads into a unified operational picture.
@@ -50,7 +53,9 @@ With new mandates for mass-proliferation of US-made commoditized sUAS, Constella
 - **Physics Engines**: Integration with Gazebo, Unity, and Unreal Engine
 - **Cross-Platform**: Native support for Windows 10/11 and macOS
 
-## 📋 Prerequisites
+## Prerequisites
+
+<!-- COPILOT: Installation requirements section - keep technical specifications accurate -->
 
 ### Required Software (Install on Host Machine)
 

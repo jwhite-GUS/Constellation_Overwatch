@@ -2,6 +2,9 @@
 """
 Constellation Overwatch SDK Core Interface
 
+COPILOT: Core SDK module - maintain professional coding standards and comprehensive documentation
+COPILOT: This module defines fundamental interfaces for all autonomous system integrations
+
 This module defines the core interfaces and base classes for the
 Constellation Overwatch SDK, providing standardized APIs for
 autonomous system integration.
