@@ -1,12 +1,15 @@
 # Contributing to Constellation Overwatch SDK
 
+<!-- COPILOT: Contributing guidelines for professional government/community project -->
+<!-- COPILOT: Maintain professional tone and comprehensive process documentation -->
+
 Thank you for your interest in contributing to the Constellation Overwatch SDK! This document provides guidelines for contributing to our open-source, government-owned autonomous systems integration platform.
 
-## 🎯 Mission Statement
+## Mission Statement
 
 Constellation Overwatch is a community-driven effort to create a modular open systems architecture (MOSA) for autonomous systems integration. Our goal is to provide open, non-proprietary tools that enable rapid, secure integration of heterogeneous unmanned systems and payloads, eliminating proprietary licensing barriers and fostering innovation.
 
-## 🤝 Community Values
+## Community Values
 
 - **Open Source First**: Everything we build is open source and freely available
 - **Government Ownership**: Ensuring government and public access to critical technologies

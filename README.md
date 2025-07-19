@@ -106,14 +106,38 @@ git clone <repository-url>
 cd constellation-overwatch-sdk
 ```
 
-### 2. Verify Docker Installation
+### 2. Open in VS Code
+
+Choose one of these workspace configurations based on your development focus:
+
+```bash
+# Full SDK development (recommended for most contributors)
+code dev/constellation-overwatch-sdk.code-workspace
+
+# ROS-focused development
+code dev/gus-ros-workspace.code-workspace
+
+# Hybrid development (SDK + ROS integration)
+code dev/constellation-overwatch-hybrid.code-workspace
+
+# Or open the entire project folder
+code .
+```
+
+The workspace files are pre-configured with:
+- Recommended VS Code extensions for the development stack
+- Task configurations for building and testing
+- Debug configurations for Python and C++
+- Settings optimized for the project structure
+
+### 3. Verify Docker Installation
 
 ```bash
 docker --version
 docker-compose --version
 ```
 
-### 3. Build the Development Environment
+### 4. Build the Development Environment
 
 ```bash
 # Build the Docker containers
@@ -123,7 +147,55 @@ docker-compose build
 docker-compose up -d
 ```
 
-### 4. Access the Development Environment
+### 5. Environment Configuration
+
+Configure your development environment with these essential variables:
+
+**For Development:**
+```bash
+# Core SDK Configuration
+export OW_API_URL="http://localhost:8080"
+export OW_TOKEN="dev-token-replace-in-production"
+export OW_ENV="development"
+export OW_LOG_LEVEL="DEBUG"
+
+# Docker Development Environment
+export OW_CONTAINER_MODE="development"
+export OW_MOUNT_SOURCE="true"
+```
+
+**For Production Deployment:**
+```bash
+# Production API Configuration
+export OW_API_URL="https://your-api-endpoint.mil"
+export OW_TOKEN="your-secure-production-token"
+export OW_ENV="production"
+export OW_LOG_LEVEL="INFO"
+
+# Security Configuration
+export OW_ENCRYPTION_KEY="your-encryption-key"
+export OW_CERTIFICATE_PATH="/path/to/certs"
+```
+
+**Platform-Specific Setup:**
+
+*Windows (PowerShell):*
+```powershell
+$env:OW_API_URL="http://localhost:8080"
+$env:OW_TOKEN="dev-token-replace-in-production"
+$env:OW_ENV="development"
+```
+
+*Linux/macOS:*
+```bash
+# Add to ~/.bashrc or ~/.zshrc for persistence
+echo 'export OW_API_URL="http://localhost:8080"' >> ~/.bashrc
+echo 'export OW_TOKEN="dev-token-replace-in-production"' >> ~/.bashrc
+echo 'export OW_ENV="development"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+### 6. Access the Development Environment
 
 ```bash
 # Enter the development container

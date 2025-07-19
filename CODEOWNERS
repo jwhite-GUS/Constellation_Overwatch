@@ -1,0 +1,55 @@
+# CODEOWNERS for Constellation Overwatch SDK
+# 
+# COPILOT: Code ownership definitions - ensure appropriate review coverage for critical components
+# This file defines who should review changes to specific parts of the codebase
+# Format: path-pattern @username @team-name
+
+# Global owners (fallback for any file not specifically mentioned)
+* @jwhite-GUS
+
+# Core SDK Components
+/sdk/core/ @jwhite-GUS
+/sdk/interfaces/ @jwhite-GUS
+
+# AI and Machine Learning Components
+/sdk/ai/ @jwhite-GUS
+/training/ @jwhite-GUS
+
+# Safety-Critical Tuning and Control Systems
+/sdk/tuning/ @jwhite-GUS
+
+# Plugin System
+/sdk/plugins/ @jwhite-GUS
+
+# Documentation
+/docs/ @jwhite-GUS
+README.md @jwhite-GUS
+CONTRIBUTING.md @jwhite-GUS
+*.md @jwhite-GUS
+
+# Configuration and Setup
+/scripts/ @jwhite-GUS
+/config/ @jwhite-GUS
+docker-compose.yml @jwhite-GUS
+Dockerfile* @jwhite-GUS
+setup.py @jwhite-GUS
+requirements.txt @jwhite-GUS
+
+# CI/CD and GitHub Configuration
+/.github/ @jwhite-GUS
+/.vscode/ @jwhite-GUS
+*.code-workspace @jwhite-GUS
+
+# Examples and Samples (lighter review requirements)
+/examples/ @jwhite-GUS
+/samples/ @jwhite-GUS
+
+# Tests
+/tests/ @jwhite-GUS
+
+# Integration Modules
+/integrations/ @jwhite-GUS
+
+# Models and Data
+/models/ @jwhite-GUS
+/data/ @jwhite-GUS
