@@ -15,6 +15,7 @@ def test_sdk_imports():
     # Test core module imports
     try:
         from sdk.core import EntityManager, MessageBus
+
         assert EntityManager is not None
         assert MessageBus is not None
         print("✅ Core SDK imports successful")
@@ -26,7 +27,8 @@ def test_api_imports():
     """Test that API modules can be imported without errors."""
     try:
         from sdk.api.rest_server import ConstellationAPI
-        assert ConstellationAPI is not None  
+
+        assert ConstellationAPI is not None
         print("✅ API imports successful")
     except ImportError as e:
         # API imports might fail due to FastAPI dependencies, make it non-critical
@@ -42,6 +44,7 @@ async def test_entity_manager_basic():
     """Test basic EntityManager functionality."""
     try:
         from sdk.core import EntityManager
+
         manager = EntityManager()
         assert manager is not None
         assert len(manager.get_all_entities()) == 0
@@ -52,11 +55,12 @@ async def test_entity_manager_basic():
         pytest.skip(f"EntityManager test failed (likely due to dependencies): {e}")
 
 
-@pytest.mark.asyncio  
+@pytest.mark.asyncio
 async def test_message_bus_basic():
     """Test basic MessageBus functionality."""
     try:
         from sdk.core import MessageBus
+
         bus = MessageBus()
         assert bus is not None
         print("✅ MessageBus basic test passed")
@@ -64,6 +68,8 @@ async def test_message_bus_basic():
         pytest.skip(f"MessageBus import failed: {e}")
     except Exception as e:
         pytest.skip(f"MessageBus test failed (likely due to dependencies): {e}")
+
+
 def test_python_version():
     """Ensure we're running on a supported Python version."""
     assert sys.version_info >= (3, 8), "Python 3.8+ required"
