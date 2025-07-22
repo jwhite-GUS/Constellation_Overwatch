@@ -287,13 +287,18 @@
     </div>
     
     <script>
+        // Configuration object for dynamic environment settings
+        window.config = {
+            apiBase: 'http://localhost:8000', // Default value for local development
+            wsBase: 'ws://localhost:8000'    // Default value for local development
+        };
         class ConstellationDashboard {
             constructor() {
                 this.ws = null;
                 this.entities = new Map();
                 this.messages = [];
                 this.maxMessages = 50;
-                this.apiBase = 'http://localhost:8000';
+                this.apiBase = window.config.apiBase;
                 
                 this.init();
             }
