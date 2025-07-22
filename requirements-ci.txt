@@ -1,0 +1,20 @@
+# Minimal requirements for CI/CD testing
+# Only essential packages needed for basic functionality
+
+# Core async and data handling
+pydantic>=1.10.0
+pyyaml>=6.0
+
+# Web framework (needed for API tests)
+fastapi>=0.95.0
+uvicorn>=0.21.0
+
+# Testing packages
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.0.0
+
+# Code quality
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0
