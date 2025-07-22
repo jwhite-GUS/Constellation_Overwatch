@@ -2,6 +2,8 @@
 """
 Constellation Overwatch - Standalone Functional Demo
 Self-contained demonstration of working core functionality.
+
+COPILOT: Professional demonstration script following established formatting standards
 """
 
 import asyncio
@@ -79,7 +81,7 @@ class EntityManager:
                 await callback("entity_created", entity)
             except:
                 pass
-        print(f"📍 Published entity: {entity.aliases.get('name', entity.entity_id[:8])} ({entity.entity_type.value})")
+        print(f"ENTITY PUBLISHED: {entity.aliases.get('name', entity.entity_id[:8])} ({entity.entity_type.value})")
         return True
     
     async def query_entities(self) -> List[Entity]:
@@ -155,7 +157,7 @@ class SimpleVehicle:
     async def start(self):
         self.running = True
         asyncio.create_task(self._publish_telemetry())
-        print(f"🚁 Vehicle {self.vehicle_id[:8]}... started")
+        print(f"VEHICLE STARTED: {self.vehicle_id[:8]}...")
     
     async def _publish_telemetry(self):
         while self.running:
@@ -174,7 +176,7 @@ class GroundControl:
     
     async def start(self):
         await self.message_bus.subscribe(self._handle_telemetry)
-        print("🎛️  Ground Control Station started")
+        print("GROUND CONTROL: Station started")
     
     async def _handle_telemetry(self, message: Message):
         if message.message_type == MessageType.VEHICLE_TELEMETRY:
@@ -183,7 +185,7 @@ class GroundControl:
             self.known_vehicles[vehicle_id] = telemetry
             
             name = vehicle_id[:8] + "..."
-            print(f"📡 Telemetry from {name}: "
+            print(f"TELEMETRY from {name}: "
                   f"Battery {telemetry.get('battery', 0):.1f}%, "
                   f"Alt {telemetry.get('altitude', 0):.1f}m, "
                   f"Status: {telemetry.get('status', 'unknown')}")
@@ -196,18 +198,18 @@ async def run_functional_demo():
     Working implementation BEFORE API schemas.
     """
     
-    print("🛰️  CONSTELLATION OVERWATCH - FUNCTIONAL CORE DEMO")
+    print("CONSTELLATION OVERWATCH - FUNCTIONAL CORE DEMO")
     print("=" * 60)
-    print("🎯 STRATEGY: Functional Implementation FIRST")
-    print("   ✅ Validates architecture through real code")
-    print("   ✅ Discovers requirements through usage")
-    print("   ✅ Provides immediate demonstrable value")
-    print("   ✅ Informs API design with actual data patterns")
+    print("STRATEGY: Functional Implementation FIRST")
+    print("   COMPLETE: Validates architecture through real code")
+    print("   COMPLETE: Discovers requirements through usage")
+    print("   COMPLETE: Provides immediate demonstrable value")
+    print("   COMPLETE: Informs API design with actual data patterns")
     print("=" * 60)
     print()
     
     # Initialize core components
-    print("🔧 Initializing core components...")
+    print("INITIALIZATION: Core components...")
     entity_manager = EntityManager()
     message_bus = MessageBus()
     
@@ -220,11 +222,11 @@ async def run_functional_demo():
         )
     
     await entity_manager.subscribe(entity_event_publisher)
-    print("✅ Core components initialized")
+    print("COMPLETE: Core components initialized")
     print()
     
     # Create entities
-    print("🏗️  Creating operational entities...")
+    print("DEPLOYMENT: Creating operational entities...")
     
     # Ground Control Station
     gcs = create_ground_station_entity(40.7505, -73.9934, "GCS-Main")
@@ -244,7 +246,7 @@ async def run_functional_demo():
     print()
     
     # Start vehicle interfaces
-    print("🚁 Starting vehicle interfaces...")
+    print("VEHICLES: Starting vehicle interfaces...")
     vehicle1 = SimpleVehicle(drone1.entity_id, message_bus)
     vehicle2 = SimpleVehicle(drone2.entity_id, message_bus)
     
@@ -253,7 +255,7 @@ async def run_functional_demo():
     print()
     
     # Let the system run and show telemetry
-    print("📊 System operational - showing real-time data flow...")
+    print("OPERATIONAL: System running - showing real-time data flow...")
     print("   (Press Ctrl+C to stop)")
     print()
     
@@ -267,35 +269,35 @@ async def run_functional_demo():
                 em_stats = entity_manager.get_stats()
                 bus_stats = message_bus.get_stats()
                 
-                print(f"📈 System Stats (t+{i*2}s):")
+                print(f"SYSTEM STATUS (t+{i*2}s):")
                 print(f"   Entities: {em_stats['total_entities']} active")
                 print(f"   Messages: {bus_stats['messages_published']} published, {bus_stats['messages_delivered']} delivered")
                 print(f"   Vehicles: {len(ground_control.known_vehicles)} reporting telemetry")
                 print()
     
     except KeyboardInterrupt:
-        print("\n🛑 Demo stopped by user")
+        print("\nSTOPPED: Demo stopped by user")
     
     finally:
         vehicle1.running = False
         vehicle2.running = False
-        print("\n✅ Demo complete!")
+        print("\nCOMPLETE: Demo finished successfully!")
         print()
-        print("🎯 KEY RESULTS:")
-        print("   ✅ Entity management system working")
-        print("   ✅ Message bus enabling component communication")
-        print("   ✅ Vehicle interfaces responding and reporting")
-        print("   ✅ Ground control coordinating operations")
-        print("   ✅ Real-time data flows validated")
+        print("KEY RESULTS:")
+        print("   COMPLETE: Entity management system working")
+        print("   COMPLETE: Message bus enabling component communication")
+        print("   COMPLETE: Vehicle interfaces responding and reporting")
+        print("   COMPLETE: Ground control coordinating operations")
+        print("   COMPLETE: Real-time data flows validated")
         print()
-        print("🚀 NEXT STEPS:")
+        print("NEXT STEPS:")
         print("   1. Add REST API wrapper (functional core proven)")
         print("   2. Connect real MAVLink vehicles")
         print("   3. Design API schemas based on working patterns")
         print("   4. Implement government compliance frameworks")
         print()
         print("This functional-first approach de-risks development")
-        print("and provides immediate stakeholder value! 🎉")
+        print("and provides immediate stakeholder value!")
 
 if __name__ == "__main__":
     try:

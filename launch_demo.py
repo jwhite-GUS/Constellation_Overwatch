@@ -2,6 +2,8 @@
 """
 Constellation Overwatch - Quick Start Launcher
 Launches the integrated demo server with functional core and web dashboard.
+
+COPILOT: Professional launcher script following established formatting standards
 """
 
 import sys
@@ -16,20 +18,20 @@ try:
     # Fix import path by using correct module name
     from examples.integrated_demo.server import main
     
-    print("🛰️  Constellation Overwatch - Functional Core Demo")
+    print("CONSTELLATION OVERWATCH - Functional Core Demo")
     print("=" * 60)
     print("Starting integrated server with:")
-    print("  ✅ Entity Management System")
-    print("  ✅ Message Bus Communication") 
-    print("  ✅ Vehicle Interface Simulation")
-    print("  ✅ REST API (http://localhost:8000)")
-    print("  ✅ Real-time WebSocket")
-    print("  ✅ Web Dashboard (http://localhost:8000/dashboard)")
+    print("  COMPLETE: Entity Management System")
+    print("  COMPLETE: Message Bus Communication") 
+    print("  COMPLETE: Vehicle Interface Simulation")
+    print("  READY: REST API (http://localhost:8000)")
+    print("  READY: Real-time WebSocket")
+    print("  READY: Web Dashboard (http://localhost:8000/dashboard)")
     print()
     print("This demonstrates our FUNCTIONAL CORE FIRST approach:")
-    print("  • Working implementation validates architecture")
-    print("  • Real data flows inform API design") 
-    print("  • Immediate demonstrable value")
+    print("  - Working implementation validates architecture")
+    print("  - Real data flows inform API design") 
+    print("  - Immediate demonstrable value")
     print("=" * 60)
     print()
     
@@ -37,7 +39,7 @@ try:
     asyncio.run(main())
     
 except ImportError as e:
-    print(f"❌ Import Error: {e}")
+    print(f"IMPORT ERROR: {e}")
     print()
     print("Missing dependencies. Please install:")
     print("  python -m pip install fastapi uvicorn websockets")
@@ -45,8 +47,8 @@ except ImportError as e:
     sys.exit(1)
     
 except KeyboardInterrupt:
-    print("\n👋 Shutdown complete. Thanks for trying Constellation Overwatch!")
+    print("\nSHUTDOWN COMPLETE: Thanks for trying Constellation Overwatch!")
     
 except Exception as e:
-    print(f"❌ Error: {e}")
+    print(f"ERROR: {e}")
     sys.exit(1)
