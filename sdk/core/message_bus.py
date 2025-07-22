@@ -173,7 +173,7 @@ class MessageBus:
             self._stats["messages_published"] += 1
             return message.message_id
         except asyncio.QueueFull:
-            print(f"Warning: Message queue full, dropping message from {source}")
+            self._logger.warning(f"Message queue full, dropping message from {source}")
             self._stats["messages_dropped"] += 1
             return ""
     
@@ -221,7 +221,7 @@ class MessageBus:
             except asyncio.TimeoutError:
                 continue  # No message, keep running
             except Exception as e:
-                print(f"Error processing message: {e}")
+                logging.error(f"Error processing message: {e}", exc_info=True)
     
     async def _deliver_message(self, message: Message):
         """Deliver message to matching subscribers"""

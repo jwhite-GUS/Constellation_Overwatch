@@ -288,8 +288,7 @@ def run_server(host: str = "0.0.0.0", port: int = 8000):
         return api.app
     
     # For development - in production would use proper ASGI server
-    app = asyncio.run(startup())
-    uvicorn.run(app, host=host, port=port)
+    uvicorn.run(startup, host=host, port=port, factory=True)
 
 
 if __name__ == "__main__":
