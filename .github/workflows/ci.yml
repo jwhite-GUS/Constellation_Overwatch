@@ -139,5 +139,10 @@ jobs:
       run: |
         docker-compose up -d
         sleep 30
-        docker-compose exec -T ros-dev bash -c "source /opt/ros/humble/setup.bash && ros2 --version"
+        if docker-compose config --services | grep -q '^ros-dev$'; then
+          docker-compose exec -T ros-dev bash -c "source /opt/ros/humble/setup.bash && ros2 --version"
+        else
+          echo "Error: Service 'ros-dev' not found in docker-compose.yml" >&2
+          exit 1
+        fi
         docker-compose down

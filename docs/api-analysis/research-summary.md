@@ -1,5 +1,19 @@
 # API Research Summary & Next Steps
 
+## Executive Summary
+This document provides an analysis of various platforms and protocols relevant to API design for edge computing and robotics systems. It highlights key architectural insights, including communication patterns, data management strategies, and integration approaches. Finally, it recommends a hybrid multi-layer architecture for the Constellation Overwatch system, detailing its core design philosophy and components.
+
+## Table of Contents
+- [Executive Summary](#executive-summary)
+- [Research Completed ✅](#research-completed-)
+  - [Platforms Analyzed](#platforms-analyzed)
+- [Key Architectural Insights](#key-architectural-insights)
+  - [Communication Patterns](#communication-patterns)
+  - [Data Management](#data-management)
+  - [Integration Strategies](#integration-strategies)
+- [Recommended Architecture for Constellation Overwatch](#recommended-architecture-for-constellation-overwatch)
+  - [Core Design Philosophy](#core-design-philosophy)
+  - [Key Components](#key-components)
 ## Research Completed ✅
 
 ### Platforms Analyzed

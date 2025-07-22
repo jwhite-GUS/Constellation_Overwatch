@@ -409,7 +409,6 @@ ros2 --help
 #### Development Environment
 - **Python 3.9+**: Core SDK runtime and development environment
 - **Docker**: Containerized development and deployment
-- **Docker**: Containerization for consistent deployment
 - **Python 3.8+**: Primary development language
 - **C++17**: High-performance components
 - **Node.js**: Web-based user interfaces
