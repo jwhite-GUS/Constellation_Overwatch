@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constellation Overwatch - Real-Time Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem 2rem;
+            border-bottom: 2px solid #00ff88;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            color: #00ff88;
+            font-size: 1.8rem;
+        }
+        
+        .connection-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff4444;
+        }
+        
+        .status-indicator.connected {
+            background: #00ff88;
+        }
+        
+        .main-container {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto 1fr;
+            gap: 2rem;
+            height: calc(100vh - 100px);
+        }
+        
+        .stats-panel {
+            grid-column: 1 / -1;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .stat-card {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00ff88;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #cccccc;
+            margin-top: 0.5rem;
+        }
+        
+        .entities-panel {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+        }
+        
+        .messages-panel {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+        }
+        
+        .panel-title {
+            font-size: 1.2rem;
+            color: #00ff88;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .entity-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #00ff88;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .entity-item.aircraft_multirotor {
+            border-left-color: #ff6b6b;
+        }
+        
+        .entity-item.operator_station {
+            border-left-color: #4ecdc4;
+        }
+        
+        .entity-name {
+            font-weight: bold;
+            color: #00ff88;
+        }
+        
+        .entity-details {
+            font-size: 0.9rem;
+            color: #cccccc;
+            margin-top: 0.5rem;
+        }
+        
+        .message-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            border-radius: 5px;
+            border-left: 3px solid #666;
+            font-size: 0.9rem;
+        }
+        
+        .message-item.ENTITY_CREATED {
+            border-left-color: #00ff88;
+        }
+        
+        .message-item.VEHICLE_TELEMETRY {
+            border-left-color: #4ecdc4;
+        }
+        
+        .message-item.VEHICLE_COMMAND {
+            border-left-color: #ff6b6b;
+        }
+        
+        .message-time {
+            color: #888;
+            font-size: 0.8rem;
+        }
+        
+        .controls-section {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        .control-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            background: #00ff88;
+            color: #000;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #00cc6a;
+        }
+        
+        .btn.danger {
+            background: #ff4444;
+            color: #fff;
+        }
+        
+        .btn.danger:hover {
+            background: #cc3333;
+        }
+        
+        .message-log {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .updating {
+            animation: pulse 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🛰️ Constellation Overwatch</h1>
+        <div class="connection-status">
+            <div class="status-indicator" id="connectionStatus"></div>
+            <span id="connectionText">Connecting...</span>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <!-- System Statistics -->
+        <div class="stats-panel">
+            <div class="panel-title">System Status</div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalEntities">0</div>
+                    <div class="stat-label">Total Entities</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="activeVehicles">0</div>
+                    <div class="stat-label">Active Vehicles</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="messagesPublished">0</div>
+                    <div class="stat-label">Messages Published</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="systemUptime">0s</div>
+                    <div class="stat-label">System Uptime</div>
+                </div>
+            </div>
+            
+            <div class="controls-section">
+                <div class="panel-title">Quick Actions</div>
+                <div class="control-buttons">
+                    <button class="btn" onclick="createTestDrone()">Create Test Drone</button>
+                    <button class="btn" onclick="sendTakeoffCommand()">Takeoff All Drones</button>
+                    <button class="btn" onclick="sendLandCommand()">Land All Drones</button>
+                    <button class="btn danger" onclick="clearAllMessages()">Clear Messages</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Entities List -->
+        <div class="entities-panel">
+            <div class="panel-title">Active Entities</div>
+            <div id="entitiesList">
+                <div style="color: #888; text-align: center; padding: 2rem;">
+                    Loading entities...
+                </div>
+            </div>
+        </div>
+        
+        <!-- Real-time Messages -->
+        <div class="messages-panel">
+            <div class="panel-title">Real-time Messages</div>
+            <div class="message-log" id="messageLog">
+                <div style="color: #888; text-align: center; padding: 2rem;">
+                    Waiting for messages...
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        class ConstellationDashboard {
+            constructor() {
+                this.ws = null;
+                this.entities = new Map();
+                this.messages = [];
+                this.maxMessages = 50;
+                this.apiBase = 'http://localhost:8000';
+                
+                this.init();
+            }
+            
+            async init() {
+                await this.connectWebSocket();
+                await this.loadInitialData();
+                this.startPeriodicUpdates();
+            }
+            
+            async connectWebSocket() {
+                try {
+                    this.ws = new WebSocket('ws://localhost:8000/ws');
+                    
+                    this.ws.onopen = () => {
+                        console.log('WebSocket connected');
+                        this.updateConnectionStatus(true);
+                        
+                        // Send heartbeat
+                        setInterval(() => {
+                            if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+                                this.ws.send(JSON.stringify({type: 'ping'}));
+                            }
+                        }, 30000);
+                    };
+                    
+                    this.ws.onmessage = (event) => {
+                        const data = JSON.parse(event.data);
+                        if (data.type === 'message') {
+                            this.handleRealtimeMessage(data.data);
+                        }
+                    };
+                    
+                    this.ws.onclose = () => {
+                        console.log('WebSocket disconnected');
+                        this.updateConnectionStatus(false);
+                        
+                        // Reconnect after 5 seconds
+                        setTimeout(() => this.connectWebSocket(), 5000);
+                    };
+                    
+                    this.ws.onerror = (error) => {
+                        console.error('WebSocket error:', error);
+                        this.updateConnectionStatus(false);
+                    };
+                } catch (error) {
+                    console.error('Failed to connect WebSocket:', error);
+                    this.updateConnectionStatus(false);
+                }
+            }
+            
+            updateConnectionStatus(connected) {
+                const statusIndicator = document.getElementById('connectionStatus');
+                const statusText = document.getElementById('connectionText');
+                
+                if (connected) {
+                    statusIndicator.classList.add('connected');
+                    statusText.textContent = 'Connected';
+                } else {
+                    statusIndicator.classList.remove('connected');
+                    statusText.textContent = 'Disconnected';
+                }
+            }
+            
+            async loadInitialData() {
+                try {
+                    await this.loadEntities();
+                    await this.loadSystemStats();
+                } catch (error) {
+                    console.error('Failed to load initial data:', error);
+                }
+            }
+            
+            async loadEntities() {
+                try {
+                    const response = await fetch(`${this.apiBase}/entities`);
+                    const entities = await response.json();
+                    
+                    this.entities.clear();
+                    entities.forEach(entity => {
+                        this.entities.set(entity.entity_id, entity);
+                    });
+                    
+                    this.renderEntities();
+                } catch (error) {
+                    console.error('Failed to load entities:', error);
+                }
+            }
+            
+            async loadSystemStats() {
+                try {
+                    const response = await fetch(`${this.apiBase}/system/stats`);
+                    const stats = await response.json();
+                    
+                    document.getElementById('totalEntities').textContent = 
+                        stats.entity_manager.total_entities;
+                    document.getElementById('activeVehicles').textContent = 
+                        stats.entity_manager.entity_types.aircraft_multirotor;
+                    document.getElementById('messagesPublished').textContent = 
+                        stats.message_bus.messages_published;
+                    document.getElementById('systemUptime').textContent = 
+                        Math.round(stats.uptime) + 's';
+                } catch (error) {
+                    console.error('Failed to load system stats:', error);
+                }
+            }
+            
+            renderEntities() {
+                const entitiesList = document.getElementById('entitiesList');
+                
+                if (this.entities.size === 0) {
+                    entitiesList.innerHTML = `
+                        <div style="color: #888; text-align: center; padding: 2rem;">
+                            No entities found
+                        </div>
+                    `;
+                    return;
+                }
+                
+                const html = Array.from(this.entities.values()).map(entity => {
+                    const name = entity.aliases.name || entity.entity_id.substring(0, 8);
+                    const position = entity.position ? 
+                        `${entity.position.latitude.toFixed(6)}, ${entity.position.longitude.toFixed(6)}` : 
+                        'Unknown';
+                    
+                    return `
+                        <div class="entity-item ${entity.entity_type}">
+                            <div class="entity-name">${name}</div>
+                            <div class="entity-details">
+                                Type: ${entity.entity_type}<br>
+                                Position: ${position}<br>
+                                Status: ${entity.is_live ? 'Active' : 'Inactive'}
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+                
+                entitiesList.innerHTML = html;
+            }
+            
+            handleRealtimeMessage(message) {
+                this.messages.unshift({
+                    ...message,
+                    received_at: new Date().toISOString()
+                });
+                
+                // Limit message history
+                if (this.messages.length > this.maxMessages) {
+                    this.messages = this.messages.slice(0, this.maxMessages);
+                }
+                
+                this.renderMessages();
+                
+                // Update entities if needed
+                if (message.message_type.includes('ENTITY')) {
+                    setTimeout(() => this.loadEntities(), 500);
+                }
+            }
+            
+            renderMessages() {
+                const messageLog = document.getElementById('messageLog');
+                
+                if (this.messages.length === 0) {
+                    messageLog.innerHTML = `
+                        <div style="color: #888; text-align: center; padding: 2rem;">
+                            Waiting for messages...
+                        </div>
+                    `;
+                    return;
+                }
+                
+                const html = this.messages.map(message => {
+                    const time = new Date(message.received_at).toLocaleTimeString();
+                    const payload = JSON.stringify(message.payload, null, 2);
+                    
+                    return `
+                        <div class="message-item ${message.message_type}">
+                            <div>
+                                <strong>${message.message_type}</strong> 
+                                from <em>${message.source}</em>
+                                ${message.target ? `to <em>${message.target}</em>` : ''}
+                            </div>
+                            <div style="margin-top: 0.5rem; font-family: monospace; font-size: 0.8rem;">
+                                ${payload}
+                            </div>
+                            <div class="message-time">${time}</div>
+                        </div>
+                    `;
+                }).join('');
+                
+                messageLog.innerHTML = html;
+                messageLog.scrollTop = 0; // Show newest messages first
+            }
+            
+            startPeriodicUpdates() {
+                // Update stats every 5 seconds
+                setInterval(() => {
+                    this.loadSystemStats();
+                }, 5000);
+                
+                // Update entities every 10 seconds
+                setInterval(() => {
+                    this.loadEntities();
+                }, 10000);
+            }
+            
+            // Control functions
+            async createTestDrone() {
+                try {
+                    const response = await fetch(`${this.apiBase}/entities`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            entity_type: 'aircraft_multirotor',
+                            position: {
+                                latitude: 40.7128 + (Math.random() - 0.5) * 0.01,
+                                longitude: -74.0060 + (Math.random() - 0.5) * 0.01,
+                                altitude: 0
+                            },
+                            name: `Test-Drone-${Math.floor(Math.random() * 1000)}`
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        console.log('Test drone created successfully');
+                        await this.loadEntities();
+                    }
+                } catch (error) {
+                    console.error('Failed to create test drone:', error);
+                }
+            }
+            
+            async sendTakeoffCommand() {
+                const vehicles = Array.from(this.entities.values())
+                    .filter(e => e.entity_type === 'aircraft_multirotor');
+                
+                for (const vehicle of vehicles) {
+                    try {
+                        await fetch(`${this.apiBase}/vehicles/${vehicle.entity_id}/commands`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                command: 'takeoff',
+                                parameters: { altitude: 50 }
+                            })
+                        });
+                    } catch (error) {
+                        console.error(`Failed to send takeoff command to ${vehicle.entity_id}:`, error);
+                    }
+                }
+            }
+            
+            async sendLandCommand() {
+                const vehicles = Array.from(this.entities.values())
+                    .filter(e => e.entity_type === 'aircraft_multirotor');
+                
+                for (const vehicle of vehicles) {
+                    try {
+                        await fetch(`${this.apiBase}/vehicles/${vehicle.entity_id}/commands`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                command: 'land',
+                                parameters: {}
+                            })
+                        });
+                    } catch (error) {
+                        console.error(`Failed to send land command to ${vehicle.entity_id}:`, error);
+                    }
+                }
+            }
+            
+            clearAllMessages() {
+                this.messages = [];
+                this.renderMessages();
+            }
+        }
+        
+        // Global functions for buttons
+        let dashboard;
+        
+        window.onload = () => {
+            dashboard = new ConstellationDashboard();
+        };
+        
+        function createTestDrone() {
+            dashboard.createTestDrone();
+        }
+        
+        function sendTakeoffCommand() {
+            dashboard.sendTakeoffCommand();
+        }
+        
+        function sendLandCommand() {
+            dashboard.sendLandCommand();
+        }
+        
+        function clearAllMessages() {
+            dashboard.clearAllMessages();
+        }
+    </script>
+</body>
+</html>
