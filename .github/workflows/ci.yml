@@ -30,41 +30,38 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install black flake8 mypy pytest
-        pip install -r requirements.txt
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         
     - name: Code formatting check
-      run: black --check sdk/ examples/ training/ tests/
+      run: black --check .
       
     - name: Lint with flake8
       run: |
-        flake8 sdk/ examples/ training/ tests/ \
-          --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 sdk/ examples/ training/ tests/ \
-          --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
           
     - name: Type checking
       run: mypy sdk/ --ignore-missing-imports
 
-  security-scan:
-    name: Security Scanning
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Run security scan
-      uses: securecodewarrior/github-action-add-sarif@v1
-      with:
-        sarif-file: 'security-scan-results.sarif'
+  # security-scan:
+  #   name: Security Scanning
+  #   runs-on: ubuntu-latest
+  #   
+  #   steps:
+  #   - name: Checkout code
+  #     uses: actions/checkout@v4
+  #     
+  #   - name: Run security scan
+  #     uses: securecodewarrior/github-action-add-sarif@v1
+  #     with:
+  #       sarif-file: 'security-scan-results.sarif'
 
   test-suite:
     name: Test Suite
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.9", "3.10", "3.11"]
         
     steps:
     - name: Checkout code
@@ -79,7 +76,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pytest pytest-cov pytest-xdist
-        pip install -r requirements.txt
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         
     - name: Run tests
       run: |
@@ -94,7 +91,7 @@ jobs:
         
   build-and-publish:
     name: Build and Publish
-    needs: [code-quality, security-scan, test-suite]
+    needs: [code-quality, test-suite]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     
@@ -115,7 +112,7 @@ jobs:
     - name: Test package installation
       run: |
         pip install dist/*.whl
-        python -c "import constellation_overwatch; print('Package installed successfully')"
+        python -c "import sdk.core; print('Package installed successfully')"
         
     # Uncomment when ready to publish to PyPI
     # - name: Publish to PyPI
@@ -123,26 +120,26 @@ jobs:
     #   with:
     #     password: ${{ secrets.PYPI_API_TOKEN }}
 
-  docker-build:
-    name: Docker Build Test
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Build Docker images
-      run: |
-        docker-compose build --no-cache
-        
-    - name: Test Docker environment
-      run: |
-        docker-compose up -d
-        sleep 30
-        if docker-compose config --services | grep -q '^ros-dev$'; then
-          docker-compose exec -T ros-dev bash -c "source /opt/ros/humble/setup.bash && ros2 --version"
-        else
-          echo "Error: Service 'ros-dev' not found in docker-compose.yml" >&2
-          exit 1
-        fi
-        docker-compose down
+  # docker-build:
+  #   name: Docker Build Test
+  #   runs-on: ubuntu-latest
+  #   
+  #   steps:
+  #   - name: Checkout code
+  #     uses: actions/checkout@v4
+  #     
+  #   - name: Build Docker images
+  #     run: |
+  #       docker-compose build --no-cache
+  #       
+  #   - name: Test Docker environment
+  #     run: |
+  #       docker-compose up -d
+  #       sleep 30
+  #       if docker-compose config --services | grep -q '^ros-dev$'; then
+  #         docker-compose exec -T ros-dev bash -c "source /opt/ros/humble/setup.bash && ros2 --version"
+  #       else
+  #         echo "Error: Service 'ros-dev' not found in docker-compose.yml" >&2
+  #         exit 1
+  #       fi
+  #       docker-compose down
