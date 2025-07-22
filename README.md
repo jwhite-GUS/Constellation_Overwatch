@@ -47,7 +47,8 @@ With new mandates for mass-proliferation of US-made commoditized sUAS, Constella
 
 ## Architecture
 
-- **ROS 2 Humble**: The core robotics framework with cross-platform support
+- **Modular Design**: Platform-agnostic core with pluggable integration frameworks
+- **Multi-Protocol Support**: Native support for MAVLink, ROS 2, DDS, and military standards
 - **Docker**: Containerized environment for consistent deployment
 - **Artificial Intelligence**: TensorFlow, PyTorch, OpenCV for computer vision and machine learning
 - **Physics Engines**: Integration with Gazebo, Unity, and Unreal Engine
@@ -114,10 +115,10 @@ Choose one of these workspace configurations based on your development focus:
 # Full SDK development (recommended for most contributors)
 code dev/constellation-overwatch-sdk.code-workspace
 
-# ROS-focused development
+# Robotics integration development 
 code dev/gus-ros-workspace.code-workspace
 
-# Hybrid development (SDK + ROS integration)
+# Hybrid development (SDK + robotics integration)
 code dev/constellation-overwatch-hybrid.code-workspace
 
 # Or open the entire project folder
@@ -201,7 +202,10 @@ source ~/.bashrc
 # Enter the development container
 docker-compose exec constellation-dev bash
 
-# Verify ROS 2 installation
+# Verify core SDK components
+python -c "import constellation_overwatch; print('SDK ready')"
+
+# Verify robotics integration (if using ROS 2)
 ros2 --help
 ```
 
@@ -362,7 +366,7 @@ ros2 --help
 
 ### Communication Protocol Standards
 - **MAVLink 2.0**: Industry-standard unmanned vehicle communication
-- **ROS 2 DDS**: Real-time publish/subscribe messaging
+- **DDS/ROS 2**: Real-time publish/subscribe messaging integration
 - **WebRTC**: Browser-based real-time communication
 - **MQTT**: Lightweight messaging for IoT integration
 - **Custom Protocols**: Optimized communication for specific mission requirements
@@ -403,7 +407,8 @@ ros2 --help
 - **Mobile**: Android 10+ and iOS 14+ for field operations
 
 #### Development Environment
-- **ROS 2 Humble**: Core robotics middleware
+- **Python 3.9+**: Core SDK runtime and development environment
+- **Docker**: Containerized development and deployment
 - **Docker**: Containerization for consistent deployment
 - **Python 3.8+**: Primary development language
 - **C++17**: High-performance components
@@ -446,7 +451,7 @@ ros2 --help
 - **TAK Integration**: Team Awareness Kit compatibility
 - **STANAG 4586**: NATO standard for UAS control systems
 - **JAUS**: Joint Architecture for Unmanned Systems
-- **ROS 2 Interfaces**: Standard ROS message types and services
+- **Multi-Protocol Support**: ROS 2, MAVLink, DDS, and custom message types
 
 #### Data Formats
 - **Imagery**: JPEG, PNG, GeoTIFF for geospatial data
@@ -510,7 +515,7 @@ constellation-overwatch-sdk/
 │   │   ├── mosa/                # MOSA-compliant interfaces
 │   │   ├── tak/                 # Team Awareness Kit integration
 │   │   ├── mavlink/             # MAVLink protocol support
-│   │   ├── ros2_interfaces/     # ROS 2 message and service definitions
+│   │   ├── robotics/            # Robotics framework integration (ROS 2, etc.)
 │   │   └── common/              # Common interface definitions
 │   ├── plugins/                 # Extensible plugin system
 │   │   ├── sensors/             # Sensor integration plugins
