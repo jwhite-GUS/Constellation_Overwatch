@@ -311,7 +311,7 @@
             
             async connectWebSocket() {
                 try {
-                    this.ws = new WebSocket('ws://localhost:8000/ws');
+                    this.ws = new WebSocket(this.wsUrl);
                     
                     this.ws.onopen = () => {
                         console.log('WebSocket connected');
