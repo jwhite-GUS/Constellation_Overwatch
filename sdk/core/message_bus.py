@@ -173,7 +173,7 @@ class MessageBus:
             self._stats["messages_published"] += 1
             return message.message_id
         except asyncio.QueueFull:
-            print(f"Warning: Message queue full, dropping message from {source}")
+            self._logger.warning(f"Message queue full, dropping message from {source}")
             self._stats["messages_dropped"] += 1
             return ""
     
