@@ -694,12 +694,23 @@ python sdk/ai/tools/deploy_model.py --model trained_models/custom_detector.pth
 
 ## Documentation
 
-- [Development Setup Guide](docs/setup/development-setup.md)
-- [Docker Environment Guide](docs/setup/docker-guide.md)
-- [ROS 2 Package Development](docs/tutorials/ros2-packages.md)
-- [AI Integration Guide](docs/tutorials/ai-integration.md)
-- [Simulation Integration](docs/tutorials/simulation-setup.md)
-- [API Documentation](docs/api/README.md)
+### Project Status and Planning
+- [Project Status](docs/PROJECT_STATUS.md) - Current development status and achievements
+- [Issues and Decisions](docs/ISSUES_AND_DECISIONS.md) - Decision log and issue tracking
+- [Roadmap](ROADMAP.md) - Future development plans and milestones
+- [Changelog](CHANGELOG.md) - Version history and release notes
+
+### Development Documentation
+- [System Architecture](docs/development/ARCHITECTURE.md) - Technical system overview
+- [Development Setup Guide](docs/setup/development-setup.md) - Environment setup
+- [API Documentation](docs/development/API_DOCUMENTATION.md) - API reference
+- [Testing Guide](docs/development/TESTING_GUIDE.md) - Testing procedures
+
+### Community and Support
+- [Contributing Guidelines](CONTRIBUTING.md) - How to contribute to the project
+- [Support](SUPPORT.md) - Getting help and support resources
+- [Security Policy](SECURITY.md) - Security reporting and guidelines
+- [Code of Conduct](.github/CODE_OF_CONDUCT.md) - Community standards
 
 ## Contributing
 
