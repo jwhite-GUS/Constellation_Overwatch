@@ -1002,7 +1002,7 @@ class TuningAnalyzer:
             self.logger.error(f"Failed to create comparison plot: {e}")
             return None
 
-    def generate_report(self, output_path: str = None) -> str:
+    def generate_report(self, output_path: Optional[str] = None) -> str:
         """Generate comprehensive analysis report"""
         if not self.analysis_history:
             return "No analysis data available for report generation."
@@ -1014,14 +1014,14 @@ class TuningAnalyzer:
         <head>
             <title>Tuning Analysis Report</title>
             <style>
-                body { font-family: Arial, sans-serif; margin: 20px; }
-                h1, h2 { color: #2c3e50; }
-                table { border-collapse: collapse; width: 100%; }
-                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-                th { background-color: #f2f2f2; }
-                .metric { margin: 10px 0; }
-                .recommendation { background-color: #e8f5e8; padding: 10px; margin: 5px 0; border-radius: 5px; }
-                .plot { margin: 20px 0; text-align: center; }
+                body {{ font-family: Arial, sans-serif; margin: 20px; }}
+                h1, h2 {{ color: #2c3e50; }}
+                table {{ border-collapse: collapse; width: 100%; }}
+                th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
+                th {{ background-color: #f2f2f2; }}
+                .metric {{ margin: 10px 0; }}
+                .recommendation {{ background-color: #e8f5e8; padding: 10px; margin: 5px 0; border-radius: 5px; }}
+                .plot {{ margin: 20px 0; text-align: center; }}
             </style>
         </head>
         <body>

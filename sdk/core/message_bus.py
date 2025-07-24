@@ -100,8 +100,8 @@ class Subscriber:
     def __init__(
         self,
         callback: Callable,
-        topics: Set[str] = None,
-        message_types: Set[MessageType] = None,
+        topics: Optional[Set[str]] = None,
+        message_types: Optional[Set[MessageType]] = None,
     ):
         self.callback = callback
         self.topics = topics or set()
@@ -131,6 +131,7 @@ class MessageBus:
         self._subscribers: Dict[str, Subscriber] = {}
         self._message_queue: asyncio.Queue = asyncio.Queue(maxsize=max_queue_size)
         self._running = False
+        self._logger = logging.getLogger(__name__)
         self._stats = {
             "messages_published": 0,
             "messages_delivered": 0,
@@ -187,8 +188,8 @@ class MessageBus:
     async def subscribe(
         self,
         callback: Callable,
-        topics: Set[str] = None,
-        message_types: Set[MessageType] = None,
+        topics: Optional[Set[str]] = None,
+        message_types: Optional[Set[MessageType]] = None,
     ) -> str:
         """
         Subscribe to messages with optional filtering.

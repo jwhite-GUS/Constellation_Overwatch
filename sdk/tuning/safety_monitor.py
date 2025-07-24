@@ -5,7 +5,7 @@ Real-time safety monitoring system for autonomous flight operations and tuning.
 
 import numpy as np
 import logging
-from typing import Dict, List, Optional, Callable
+from typing import Dict, List, Optional, Callable, Any
 from dataclasses import dataclass, field
 from enum import Enum
 import time
@@ -105,7 +105,7 @@ class SafetyMonitor:
 
     def __init__(
         self,
-        limits: SafetyLimits = None,
+        limits: Optional[SafetyLimits] = None,
         history_size: int = 1000,
         enable_auto_response: bool = True,
     ):
@@ -390,7 +390,7 @@ class SafetyMonitor:
         value: float,
         limit: float,
         message: str,
-        data: Dict = None,
+        data: Optional[Dict[Any, Any]] = None,
     ):
         """Add safety violation"""
         violation = SafetyViolation(

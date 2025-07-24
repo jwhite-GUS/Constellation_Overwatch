@@ -7,7 +7,7 @@ import numpy as np
 import logging
 import json
 import pickle
-from typing import Dict, List, Tuple, Optional, Any, Union
+from typing import Dict, List, Tuple, Optional, Any, Union, Callable
 from dataclasses import dataclass, field, asdict
 from enum import Enum
 from pathlib import Path
@@ -180,7 +180,7 @@ class ParameterManager:
 
         # Parameter change tracking
         self.change_history: List[Dict] = []
-        self.change_callbacks: List[callable] = []
+        self.change_callbacks: List[Callable] = []
 
         # Thread safety
         self._lock = threading.RLock()
@@ -498,7 +498,7 @@ class ParameterManager:
 
         return gains
 
-    def backup_parameters(self, backup_name: str = None) -> str:
+    def backup_parameters(self, backup_name: Optional[str] = None) -> str:
         """Create backup of current parameters"""
         if backup_name is None:
             backup_name = f"backup_{int(time.time())}"
@@ -644,7 +644,7 @@ class ParameterManager:
         except Exception as e:
             self.logger.error(f"Failed to load configuration: {e}")
 
-    def add_change_callback(self, callback: callable):
+    def add_change_callback(self, callback: Callable):
         """Add callback for parameter changes"""
         self.change_callbacks.append(callback)
 

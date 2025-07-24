@@ -3,7 +3,7 @@ Constellation Overwatch SDK - Core Entity Manager
 Basic implementation following industry standard patterns from API analysis.
 """
 
-from typing import Dict, List, Optional, Any, Set
+from typing import Dict, List, Optional, Any, Set, Callable
 from dataclasses import dataclass, field
 from enum import Enum
 import asyncio
@@ -210,11 +210,11 @@ class EntityManager:
         """Remove entity"""
         return await self._remove_entity(entity_id)
 
-    async def subscribe(self, callback: callable):
+    async def subscribe(self, callback: Callable):
         """Subscribe to entity events"""
         self._subscribers.add(callback)
 
-    async def unsubscribe(self, callback: callable):
+    async def unsubscribe(self, callback: Callable):
         """Unsubscribe from entity events"""
         self._subscribers.discard(callback)
 
@@ -264,7 +264,7 @@ class EntityManager:
 
 
 # Helper functions for creating standard entities
-def create_drone_entity(lat: float, lon: float, alt: float, name: str = None) -> Entity:
+def create_drone_entity(lat: float, lon: float, alt: float, name: Optional[str] = None) -> Entity:
     """Create a standard drone entity"""
     entity_id = str(uuid.uuid4())
     position = Position(latitude=lat, longitude=lon, altitude=alt)
@@ -283,7 +283,7 @@ def create_drone_entity(lat: float, lon: float, alt: float, name: str = None) ->
     return entity
 
 
-def create_ground_station_entity(lat: float, lon: float, name: str = None) -> Entity:
+def create_ground_station_entity(lat: float, lon: float, name: Optional[str] = None) -> Entity:
     """Create a ground station entity"""
     entity_id = str(uuid.uuid4())
     position = Position(latitude=lat, longitude=lon, altitude=0)
