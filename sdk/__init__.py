@@ -16,7 +16,7 @@ from sdk.core.message_bus import MessageBus, MessageType, Message
 
 __all__ = [
     "EntityManager",
-    "Entity", 
+    "Entity",
     "MessageBus",
     "MessageType",
     "Message",

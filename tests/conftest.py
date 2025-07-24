@@ -27,5 +27,5 @@ def sample_entity_data():
         "position": {"x": 10.0, "y": 20.0, "z": 30.0},
         "velocity": {"x": 0.0, "y": 0.0, "z": 0.0},
         "status": "active",
-        "mission_id": "test_mission_001"
+        "mission_id": "test_mission_001",
     }

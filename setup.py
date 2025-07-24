@@ -6,20 +6,23 @@ Constellation Overwatch SDK Setup Script
 from setuptools import setup, find_packages
 import os
 
+
 # Read version from SDK_VERSION.md
 def get_version():
-    version_file = os.path.join(os.path.dirname(__file__), 'SDK_VERSION.md')
-    with open(version_file, 'r') as f:
+    version_file = os.path.join(os.path.dirname(__file__), "SDK_VERSION.md")
+    with open(version_file, "r") as f:
         for line in f:
-            if line.startswith('**Version**:'):
-                return line.split(':')[1].strip()
+            if line.startswith("**Version**:"):
+                return line.split(":")[1].strip()
     return "1.0.0"
+
 
 # Read README for long description
 def get_long_description():
-    readme_file = os.path.join(os.path.dirname(__file__), 'README.md')
-    with open(readme_file, 'r', encoding='utf-8') as f:
+    readme_file = os.path.join(os.path.dirname(__file__), "README.md")
+    with open(readme_file, "r", encoding="utf-8") as f:
         return f.read()
+
 
 setup(
     name="constellation-overwatch-sdk",
@@ -31,12 +34,10 @@ setup(
     author_email="community@constellation-overwatch.org",
     url="https://github.com/constellation-overwatch/sdk",
     license="Apache License 2.0",
-    
     # Package configuration
     packages=find_packages(where="sdk"),
     package_dir={"": "sdk"},
     python_requires=">=3.8",
-    
     # Dependencies
     install_requires=[
         "asyncio-mqtt>=0.11.0",
@@ -55,7 +56,6 @@ setup(
         "fastapi>=0.70.0",
         "uvicorn>=0.15.0",
     ],
-    
     # Optional dependencies
     extras_require={
         "dev": [
@@ -82,9 +82,8 @@ setup(
             "pytorch>=1.11.0",
             "transformers>=4.15.0",
             "opencv-contrib-python>=4.5.0",
-        ]
+        ],
     },
-    
     # Entry points
     entry_points={
         "console_scripts": [
@@ -94,7 +93,6 @@ setup(
             "co-deploy=sdk.tools.deployer:main",
         ],
     },
-    
     # Package data
     package_data={
         "sdk": [
@@ -105,7 +103,6 @@ setup(
             "schemas/*.json",
         ],
     },
-    
     # Classifiers
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -125,7 +122,6 @@ setup(
         "Environment :: Console",
         "Environment :: Web Environment",
     ],
-    
     # Keywords
     keywords=[
         "autonomous systems",
@@ -142,9 +138,8 @@ setup(
         "tak",
         "mavlink",
         "government",
-        "open source"
+        "open source",
     ],
-    
     # Project URLs
     project_urls={
         "Documentation": "https://docs.constellation-overwatch.org",
@@ -153,7 +148,6 @@ setup(
         "Community": "https://github.com/constellation-overwatch/sdk/discussions",
         "Changelog": "https://github.com/constellation-overwatch/sdk/blob/main/CHANGELOG.md",
     },
-    
     # Metadata
     zip_safe=False,
     include_package_data=True,
