@@ -5,6 +5,7 @@ Lightweight implementation following analysis patterns for component communicati
 
 import asyncio
 import json
+import logging
 import time
 from typing import Dict, List, Any, Callable, Optional, Set
 from dataclasses import dataclass, field
