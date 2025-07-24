@@ -3,7 +3,7 @@
 Constellation Overwatch - Standalone Functional Demo
 Self-contained demonstration of working core functionality.
 
-COPILOT: Professional demonstration script following established formatting standards
+DEVTEAM: Professional demonstration script following established formatting standards
 """
 
 import asyncio

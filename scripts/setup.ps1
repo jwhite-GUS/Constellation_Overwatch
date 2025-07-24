@@ -1,4 +1,4 @@
-# COPILOT: PowerShell setup script for Windows - maintain professional output messages
+# DEVTEAM: PowerShell setup script for Windows - maintain professional output messages
 # Galaxy Unmanned Systems - PowerShell Setup Script
 # This script sets up the ROS 2 development environment on Windows
 

@@ -1,7 +1,7 @@
 # Constellation Overwatch SDK
 
-<!-- COPILOT: Main SDK documentation - maintain professional government-appropriate tone -->
-<!-- COPILOT: This is the primary project documentation viewed by all users and contributors -->
+<!-- DEVTEAM: Main SDK documentation - maintain professional government-appropriate tone -->
+<!-- DEVTEAM: This is the primary project documentation viewed by all users and contributors -->
 
 **Government-Owned, Community-Driven Autonomous Systems Integration Platform**
 
@@ -56,7 +56,9 @@ With new mandates for mass-proliferation of US-made commoditized sUAS, Constella
 
 ## Prerequisites
 
-<!-- COPILOT: Installation requirements section - keep technical specifications accurate -->
+## Quick Start
+
+<!-- DEVTEAM: Installation requirements section - keep technical specifications accurate -->
 
 ### Required Software (Install on Host Machine)
 

@@ -1,7 +1,7 @@
 # Contributing to Constellation Overwatch SDK
 
-<!-- COPILOT: Contributing guidelines for professional government/community project -->
-<!-- COPILOT: Maintain professional tone and comprehensive process documentation -->
+<!-- DEVTEAM: Contributing guidelines for professional government/community project -->
+<!-- DEVTEAM: Maintain professional tone and comprehensive process documentation -->
 
 Thank you for your interest in contributing to the Constellation Overwatch SDK! This document provides guidelines for contributing to our open-source, government-owned autonomous systems integration platform.
 

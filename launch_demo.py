@@ -3,7 +3,7 @@
 Constellation Overwatch - Quick Start Launcher
 Launches the integrated demo server with functional core and web dashboard.
 
-COPILOT: Professional launcher script following established formatting standards
+DEVTEAM: Professional launcher script following established formatting standards
 """
 
 import sys

@@ -1,8 +1,8 @@
 """
-Constellation Overwatch SDK - Autopilot Tuning Framework
+Constellation Overwatch SDK - Autopilot Tuning Module
 
-COPILOT: Autopilot tuning module - ensure safety-first approach in all tuning operations
-COPILOT: This module handles critical flight control parameters - validate all changes thoroughly
+DEVTEAM: Autopilot tuning module - ensure safety-first approach in all tuning operations
+DEVTEAM: This module handles critical flight control parameters - validate all changes thoroughly
 
 Advanced tuning system for flight controller optimization and parameter management.
 """

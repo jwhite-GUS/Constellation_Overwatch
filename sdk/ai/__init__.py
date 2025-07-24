@@ -2,8 +2,8 @@
 """
 Constellation Overwatch SDK AI Integration Module
 
-COPILOT: AI integration module - ensure secure and ethical AI implementation
-COPILOT: This module handles all AI capabilities including computer vision, ML, and NLP
+DEVTEAM: AI integration module - ensure secure and ethical AI implementation
+DEVTEAM: This module handles all AI capabilities including computer vision, ML, and NLP
 
 This module provides core AI interfaces and capabilities for autonomous systems,
 including computer vision, machine learning, decision making, and natural language processing.

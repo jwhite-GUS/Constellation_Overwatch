@@ -1,6 +1,6 @@
 # CODEOWNERS for Constellation Overwatch SDK
 # 
-# COPILOT: Code ownership definitions - ensure appropriate review coverage for critical components
+# DEVTEAM: Code ownership definitions - ensure appropriate review coverage for critical components
 # This file defines who should review changes to specific parts of the codebase
 # Format: path-pattern @username @team-name
 

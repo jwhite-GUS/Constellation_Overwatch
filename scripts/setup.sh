@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# COPILOT: Environment setup script - maintain professional status messages
+# DEVTEAM: Environment setup script - maintain professional status messages
 # Galaxy Unmanned Systems - Environment Setup Script
 # This script sets up the development environment
 

@@ -1,6 +1,6 @@
 # Code of Conduct
 
-<!-- COPILOT: Code of conduct for professional government/community project -->
+<!-- DEVTEAM: Code of conduct for professional government/community project -->
 
 ## Our Commitment
 

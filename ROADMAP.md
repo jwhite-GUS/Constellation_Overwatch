@@ -1,4 +1,4 @@
-# COPILOT: Roadmap for Constellation Overwatch SDK development phases
+# DEVTEAM: Roadmap for Constellation Overwatch SDK development phases
 
 # Constellation Overwatch SDK Roadmap
 
@@ -11,7 +11,7 @@ The Constellation Overwatch SDK has successfully transformed from a basic ROS de
 ### Core Infrastructure
 - **COMPLETE**: Professional repository structure and governance
 - **COMPLETE**: GitHub Templates and community guidelines
-- **COMPLETE**: AI formatting standards and Copilot integration
+- **COMPLETE**: AI formatting standards and DEVTEAM integration
 - **IN PROGRESS**: CI/CD pipeline implementation
 - **PLANNED**: Automated testing framework deployment
 

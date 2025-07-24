@@ -7,7 +7,9 @@ assignees: ''
 
 ---
 
-<!-- COPILOT: Bug report template - maintain professional tone and gather comprehensive technical details -->
+## Bug Description
+
+<!-- DEVTEAM: Bug report template - maintain professional tone and gather comprehensive technical details -->
 
 ## Bug Description
 **Brief Summary**

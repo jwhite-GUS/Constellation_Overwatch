@@ -1,6 +1,8 @@
 # Pull Request: Functional Core Architecture Implementation
 
-<!-- COPILOT: Professional pull request template following established formatting guidelines -->
+# Pull Request
+
+<!-- DEVTEAM: Professional pull request template following established formatting guidelines -->
 
 ## Overview
 Implements the **functional-first approach** for Constellation Overwatch SDK, delivering working core functionality to validate architecture before API schema design.
@@ -50,7 +52,7 @@ Implements the **functional-first approach** for Constellation Overwatch SDK, de
 
 ## Technical Achievements
 
-<!-- COPILOT: Performance metrics section - maintain professional technical documentation -->
+<!-- DEVTEAM: Performance metrics section - maintain professional technical documentation -->
 
 ### Performance Validated
 - **3+ entities** managed with real-time tracking
@@ -87,7 +89,7 @@ Future API schemas will be **informed by reality**:
 
 ## Testing and Validation
 
-<!-- COPILOT: Testing documentation section - maintain professional technical standards -->
+<!-- DEVTEAM: Testing documentation section - maintain professional technical standards -->
 
 ### Manual Testing Performed
 ```bash

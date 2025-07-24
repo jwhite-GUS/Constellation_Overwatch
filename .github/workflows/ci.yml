@@ -1,4 +1,4 @@
-# COPILOT: CI/CD pipeline for professional SDK development
+# DEVTEAM: CI/CD pipeline for professional SDK development
 # This workflow ensures code quality, security, and compatibility across platforms
 
 name: CI/CD Pipeline

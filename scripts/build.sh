@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# COPILOT: ROS 2 build script - maintain professional build status messages
+# DEVTEAM: ROS 2 build script - maintain professional build status messages
 # Galaxy Unmanned Systems - ROS 2 Build Script
 # This script builds all ROS 2 packages in the workspace
 

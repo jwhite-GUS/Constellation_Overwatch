@@ -1,6 +1,6 @@
 # IMPLEMENTATION COMPLETE: Functional Core First Approach
 
-<!-- COPILOT: Implementation summary document following professional formatting standards -->
+<!-- DEVTEAM: Implementation summary document following professional formatting standards -->
 
 ## Strategic Implementation Summary
 
@@ -60,7 +60,7 @@
 
 ## Why Functional First Was The Right Approach
 
-<!-- COPILOT: Strategic justification section - maintain professional technical documentation -->
+<!-- DEVTEAM: Strategic justification section - maintain professional technical documentation -->
 
 ### Architecture Validation Through Real Code
 

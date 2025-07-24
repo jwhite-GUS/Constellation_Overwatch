@@ -1,6 +1,6 @@
 # AI Formatting Guidelines for Constellation Overwatch SDK
 
-<!-- COPILOT: This file establishes professional formatting standards for all AI-generated content -->
+<!-- DEVTEAM: This file establishes professional formatting standards for all AI-generated content -->
 
 ## Professional Documentation Standards
 
@@ -54,30 +54,30 @@ Instead of emojis, use standard text indicators:
 - 🎯 → OBJECTIVES or GOALS
 - 🌟 → FEATURED or IMPORTANT
 
-## Copilot Integration Notes
+## DEVTEAM Integration Notes
 
 ### File Header Comments
-All files should include a Copilot note at the top:
+All files should include a DEVTEAM note at the top:
 ```markdown
-<!-- COPILOT: [Brief description of file purpose and formatting requirements] -->
+<!-- DEVTEAM: [Brief description of file purpose and formatting requirements] -->
 ```
 
 ### Section Comments
-Add Copilot notes for major sections:
+Add DEVTEAM notes for major sections:
 ```markdown
-<!-- COPILOT: This section covers [specific topic] - maintain professional tone -->
+<!-- DEVTEAM: This section covers [specific topic] - maintain professional tone -->
 ```
 
 ### Code Comments
 For Python files:
 ```python
-# COPILOT: This module handles [specific functionality]
+# DEVTEAM: This module handles [specific functionality]
 # Follow professional coding standards and documentation
 ```
 
 For shell scripts:
 ```bash
-# COPILOT: This script performs [specific task]
+# DEVTEAM: This script performs [specific task]
 # Use professional output messages without decorative elements
 ```
 
@@ -85,18 +85,18 @@ For shell scripts:
 
 ### When Updating Documentation
 1. Replace all emojis with professional text equivalents
-2. Add appropriate Copilot notes for context
+2. Add appropriate DEVTEAM notes for context
 3. Maintain technical accuracy and clarity
 4. Use consistent formatting throughout
 
 ### When Writing Code
-1. Include Copilot notes for complex functions
+1. Include DEVTEAM notes for complex functions
 2. Use professional variable and function names
 3. Add comprehensive docstrings
 4. Follow established coding standards
 
 ### When Creating New Files
-1. Start with appropriate Copilot note
+1. Start with appropriate DEVTEAM note
 2. Use professional headers and structure
 3. Include clear purpose statements
 4. Maintain consistency with existing files
@@ -105,7 +105,7 @@ For shell scripts:
 
 ### Before Committing
 - [ ] All emojis replaced with professional alternatives
-- [ ] Copilot notes added where appropriate
+- [ ] DEVTEAM notes added where appropriate
 - [ ] Consistent formatting throughout
 - [ ] Technical accuracy verified
 - [ ] Professional tone maintained

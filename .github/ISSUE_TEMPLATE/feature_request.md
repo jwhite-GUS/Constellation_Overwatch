@@ -7,7 +7,9 @@ assignees: ''
 
 ---
 
-<!-- COPILOT: Feature request template - focus on community value and technical feasibility -->
+## Feature Description
+
+<!-- DEVTEAM: Feature request template - focus on community value and technical feasibility -->
 
 ## Feature Summary
 **Brief Description**

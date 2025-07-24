@@ -1,4 +1,4 @@
-<!-- COPILOT: Pull request template - ensure comprehensive review process for community contributions -->
+<!-- DEVTEAM: Pull request template - ensure comprehensive review process for community contributions -->
 
 ## Pull Request Description
 **Summary**
