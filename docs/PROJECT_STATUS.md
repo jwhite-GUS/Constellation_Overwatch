@@ -7,14 +7,16 @@
 
 ## Executive Summary
 
-The Constellation Overwatch SDK has been successfully transformed from a basic ROS setup into a comprehensive, professional-grade software development kit for autonomous drone systems with integrated AI capabilities. The project serves as a government-owned open source alternative to proprietary platforms and provides a solid foundation for advanced autonomous operations.
+The Constellation Overwatch SDK is a comprehensive, professional-grade software development kit for autonomous drone systems with integrated AI capabilities. Designed as a government-owned open source alternative to proprietary platforms, it provides a solid foundation for advanced autonomous operations.
+
+When adopted by government agencies, the SDK serves as a DevSecOps sandbox developer kit, enabling secure, isolated environments for rapid prototyping, integration, and testing of mission-critical software. This sandbox approach supports automated security controls, continuous integration pipelines, and streamlined deployment workflows, allowing teams to safely evaluate new capabilities and collaborate on innovation while maintaining compliance and operational security.
 
 ## Current Status Overview
 
 ### Build Status
-- **Main Branch**: [![Build Status](https://img.shields.io/github/actions/workflow/status/constellation-overwatch/constellation-overwatch/ci.yml?branch=main)](https://github.com/constellation-overwatch/constellation-overwatch/actions)
+- **Main Branch**: [![Build Status](https://img.shields.io/github/actions/workflow/status/jwhite-GUS/Constellation_Overwatch/ci.yml?branch=main)](https://github.com/jwhite-GUS/Constellation_Overwatch/actions)
 - **Version**: ![Version](https://img.shields.io/badge/version-1.0.0-blue)
-- **License**: ![License](https://img.shields.io/badge/license-MIT-green)
+- **License**: [![License](https://img.shields.io/github/license/jwhite-GUS/Constellation_Overwatch)](https://github.com/jwhite-GUS/Constellation_Overwatch/blob/main/LICENSE)
 - **Python**: ![Python](https://img.shields.io/badge/python-3.8%2B-blue)
 
 ## Major Achievements
