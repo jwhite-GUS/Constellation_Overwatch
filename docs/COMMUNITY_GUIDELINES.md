@@ -61,18 +61,17 @@ We as members, contributors, and leaders pledge to make participation in our com
 
 Examples of behavior that contribute to a positive environment:
 
-#### ✅ **Encouraged Behaviors**
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
-- Showing empathy towards other community members
-- Helping newcomers get started and feel welcome
-- Sharing knowledge and resources generously
-- Giving credit where credit is due
-- Asking for help when needed
+#### **Encouraged Behaviors**
+- Communicate professionally with clear technical focus
+- Respect proven expertise and experience
+- Provide constructive feedback aligned with project standards
+- Prioritize solutions that advance project objectives
+- Mentor others to build technical competence
+- Share knowledge and resources that improve code quality
+- Recognize valuable contributions in public channels
+- Ask for guidance when uncertain about requirements
 
-#### ❌ **Unacceptable Behaviors**
+#### **Unacceptable Behaviors**
 - The use of sexualized language or imagery and unwelcome sexual attention or advances
 - Trolling, insulting/derogatory comments, and personal or political attacks
 - Public or private harassment
@@ -101,7 +100,7 @@ All reports will be reviewed and investigated promptly and fairly. The community
 
 ### Primary Channels
 
-#### 💬 **Discord Server** - `constellation-overwatch.discord.gg`
+#### **Discord Server** - `constellation-overwatch.discord.gg`
 - **#general**: General discussion and community chat
 - **#help**: Questions and technical support
 - **#showcase**: Share your projects and achievements
@@ -109,12 +108,12 @@ All reports will be reviewed and investigated promptly and fairly. The community
 - **#announcements**: Official project announcements
 - **#random**: Off-topic conversations
 
-#### 📧 **Mailing Lists**
+#### **Mailing Lists**
 - **dev@constellation-overwatch.org**: Development discussions
 - **users@constellation-overwatch.org**: User questions and discussions
 - **announce@constellation-overwatch.org**: Important announcements (low volume)
 
-#### 🐙 **GitHub Discussions**
+####  **GitHub Discussions**
 - Project-specific discussions
 - Feature requests and design proposals
 - Q&A and troubleshooting
@@ -144,11 +143,11 @@ All reports will be reviewed and investigated promptly and fairly. The community
 ### Getting Started
 
 #### New Contributor Checklist
-1. ✅ Read the [Code of Conduct](#code-of-conduct)
-2. ✅ Join the [Discord community](https://constellation-overwatch.discord.gg)
-3. ✅ Review the [Developer Guides](docs/development/DEVELOPER_GUIDES.md)
-4. ✅ Set up your [development environment](docs/development/SETUP.md)
-5. ✅ Find a "good first issue" to work on
+1.  Read the [Code of Conduct](#code-of-conduct)
+2.  Join the [Discord community](https://constellation-overwatch.discord.gg)
+3.  Review the [Developer Guides](docs/development/DEVELOPER_GUIDES.md)
+4.  Set up your [development environment](docs/development/SETUP.md)
+5.  Find a "good first issue" to work on
 
 #### First Contribution Path
 1. **Browse Issues**: Look for issues labeled `good-first-issue` or `help-wanted`
@@ -159,7 +158,7 @@ All reports will be reviewed and investigated promptly and fairly. The community
 
 ### Contribution Types
 
-#### 🔧 **Code Contributions**
+####  **Code Contributions**
 - **Bug Fixes**: Identify and resolve issues
 - **Features**: Implement new functionality
 - **Performance**: Optimize existing code
@@ -175,7 +174,7 @@ All reports will be reviewed and investigated promptly and fairly. The community
 6. Participate in code review
 7. Merge after approval
 
-#### 📖 **Documentation Contributions**
+####  **Documentation Contributions**
 - **Tutorials**: Step-by-step guides for common tasks
 - **API Documentation**: Reference materials for developers
 - **Examples**: Sample code and use cases
@@ -220,19 +219,19 @@ All reports will be reviewed and investigated promptly and fairly. The community
 
 ### Role Definitions
 
-#### 👥 **Community Members**
+####  **Community Members**
 - Participate in discussions and provide feedback
 - Report issues and suggest improvements
 - Help other community members
 - Follow community guidelines
 
-#### 🔨 **Contributors**
+####  **Contributors**
 - Submit code, documentation, or other contributions
 - Participate in code reviews
 - Help maintain project quality
 - Mentor new contributors
 
-#### 🛠️ **Maintainers**
+####  **Maintainers**
 - Review and merge contributions
 - Maintain project direction and quality
 - Release new versions
@@ -244,7 +243,7 @@ All reports will be reviewed and investigated promptly and fairly. The community
 - Commitment to community values
 - Active participation for 6+ months
 
-#### 👑 **Core Team**
+####  **Core Team**
 - Set project vision and strategy
 - Make architectural decisions
 - Manage community governance
@@ -274,18 +273,18 @@ Community Member → Contributor → Maintainer → Core Team
 
 ### Recognition Program
 
-#### 🏆 **Monthly Recognition**
+####  **Monthly Recognition**
 - **Contributor of the Month**: Outstanding contribution recognition
 - **Helpful Community Member**: Recognition for helping others
 - **Innovation Award**: Creative solutions and ideas
 
-#### 🎖️ **Annual Awards**
+####  **Annual Awards**
 - **Technical Excellence**: Best technical contribution
 - **Community Building**: Outstanding community engagement
 - **Documentation**: Best documentation contribution
 - **Newcomer**: Best new contributor
 
-#### 📜 **Badges and Achievements**
+####  **Badges and Achievements**
 - **First Contribution**: Welcome badge for first-time contributors
 - **Bug Hunter**: Recognition for finding and reporting issues
 - **Code Reviewer**: Active participation in code reviews
@@ -294,19 +293,19 @@ Community Member → Contributor → Maintainer → Core Team
 
 ### Reward System
 
-#### 🎁 **Swag and Merchandise**
+####  **Swag and Merchandise**
 - Project stickers and pins
 - T-shirts and hoodies
 - Laptop stickers and badges
 - Limited edition items for special contributors
 
-#### 🎟️ **Conference and Event Benefits**
+####  **Conference and Event Benefits**
 - Speaker opportunities at conferences
 - Free tickets to relevant events
 - Travel assistance for core contributors
 - Booth representation opportunities
 
-#### 📈 **Professional Benefits**
+####  **Professional Benefits**
 - LinkedIn skill endorsements
 - Reference letters for contributors
 - Portfolio project highlights
@@ -316,16 +315,16 @@ Community Member → Contributor → Maintainer → Core Team
 
 ### Regular Events
 
-#### 🎯 **Weekly Events**
+####  **Weekly Events**
 - **Office Hours**: Q&A sessions with maintainers (Wednesdays 2PM UTC)
 - **Show and Tell**: Community members share projects (Fridays 4PM UTC)
 
-#### 📅 **Monthly Events**
+####  **Monthly Events**
 - **Community Call**: Project updates and community discussion (First Tuesday)
 - **Contributors Meeting**: Planning and coordination (Third Tuesday)
 - **Newcomer Welcome**: Onboarding session for new members (Last Friday)
 
-#### 🎪 **Special Events**
+####  **Special Events**
 - **Hackathons**: Quarterly coding events with prizes
 - **Conference Talks**: Presentations at major conferences
 - **Workshops**: Hands-on learning sessions
@@ -349,19 +348,19 @@ Community Member → Contributor → Maintainer → Core Team
 
 ### Content Creation
 
-#### 📝 **Blog Posts**
+####  **Blog Posts**
 - Technical tutorials and guides
 - Project updates and announcements
 - Community spotlights and interviews
 - Best practices and lessons learned
 
-#### 🎥 **Video Content**
+####  **Video Content**
 - Setup and installation guides
 - Feature demonstrations
 - Developer interviews
 - Conference presentations
 
-#### 📊 **Community Metrics**
+####  **Community Metrics**
 - Monthly community reports
 - Contribution statistics
 - Growth and engagement metrics
@@ -387,13 +386,13 @@ We believe great documentation is essential for community success. Our documenta
 - **How-To Guides**: Solutions for specific problems
 - **Reference**: Comprehensive API and configuration documentation
 
-#### 🔧 **Developer Documentation**
+####  **Developer Documentation**
 - **Architecture Overview**: System design and structure
 - **Contributing Guide**: How to contribute to the project
 - **API Reference**: Detailed API documentation
 - **Development Setup**: Environment configuration
 
-#### 🏛️ **Community Documentation**
+####  **Community Documentation**
 - **Community Guidelines**: This document
 - **Code of Conduct**: Behavior standards
 - **Governance**: Decision-making processes
@@ -501,19 +500,19 @@ Where to go from here.
 
 ### Learning Resources
 
-#### 📖 **Documentation Hub**
+####  **Documentation Hub**
 - **Quick Start Guide**: Get up and running in 15 minutes
 - **Comprehensive Tutorials**: Deep-dive learning materials
 - **API Reference**: Complete technical documentation
 - **Best Practices**: Guidelines and recommendations
 
-#### 🎓 **Educational Content**
+####  **Educational Content**
 - **Video Tutorials**: Visual learning materials
 - **Interactive Examples**: Hands-on learning experiences
 - **Webinar Series**: Expert presentations and Q&A
 - **Workshop Materials**: Slides and exercises from events
 
-#### 🔗 **External Resources**
+####  **External Resources**
 - **Recommended Reading**: Books and articles on autonomous systems
 - **Related Projects**: Complementary open source projects
 - **Industry News**: Relevant developments and trends
@@ -521,19 +520,19 @@ Where to go from here.
 
 ### Support Resources
 
-#### 🆘 **Getting Help**
+####  **Getting Help**
 - **Discord #help Channel**: Real-time community support
 - **GitHub Issues**: Bug reports and feature requests
 - **Stack Overflow**: Tag questions with `constellation-overwatch`
 - **Email Support**: community@constellation-overwatch.org
 
-#### 🔧 **Development Tools**
+####  **Development Tools**
 - **Development Environment**: Pre-configured development setups
 - **Testing Tools**: Automated testing and validation tools
 - **CI/CD Templates**: Continuous integration configurations
 - **Deployment Guides**: Production deployment instructions
 
-#### 📊 **Monitoring and Analytics**
+####  **Monitoring and Analytics**
 - **Community Dashboard**: Real-time community metrics
 - **Project Health**: Code quality and activity indicators
 - **Usage Analytics**: How the project is being used
@@ -541,19 +540,19 @@ Where to go from here.
 
 ### Community Tools
 
-#### 🤖 **Automation**
+####  **Automation**
 - **Welcome Bot**: Greets new community members
 - **Issue Triage**: Automatic labeling and assignment
 - **CI/CD Pipeline**: Automated testing and deployment
 - **Release Management**: Automated release processes
 
-#### 📈 **Analytics and Insights**
+####  **Analytics and Insights**
 - **Contribution Tracking**: Monitor community contributions
 - **Engagement Metrics**: Measure community activity
 - **Growth Analysis**: Track community growth over time
 - **Success Metrics**: Measure achievement of community goals
 
-#### 🎨 **Branding and Assets**
+####  **Branding and Assets**
 - **Logo and Branding**: Official project assets
 - **Presentation Templates**: Standardized presentation materials
 - **Marketing Materials**: Flyers, stickers, and promotional items
@@ -594,18 +593,18 @@ Where to go from here.
 ### Immediate Actions
 
 #### For New Community Members
-1. 🎯 **Join Discord**: Connect with the community
-2. 📖 **Read Documentation**: Understand the project
-3. 🐙 **Star the Repository**: Show your support
-4. 📢 **Introduce Yourself**: Share your background and interests
-5. 🔍 **Find Your First Issue**: Look for ways to contribute
+1.  **Join Discord**: Connect with the community
+2.  **Read Documentation**: Understand the project
+3.  **Star the Repository**: Show your support
+4.  **Introduce Yourself**: Share your background and interests
+5.  **Find Your First Issue**: Look for ways to contribute
 
 #### For Contributors
-1. 🔧 **Set Up Development Environment**: Follow the setup guide
-2. 📝 **Pick an Issue**: Choose something that interests you
-3. 💬 **Ask Questions**: Don't hesitate to seek help
-4. 🚀 **Submit Your First PR**: Share your contribution
-5. 🎉 **Celebrate Success**: Share your achievement
+1.  **Set Up Development Environment**: Follow the setup guide
+2.  **Pick an Issue**: Choose something that interests you
+3.  **Ask Questions**: Don't hesitate to seek help
+4.  **Submit Your First PR**: Share your contribution
+5.  **Celebrate Success**: Share your achievement
 
 ### Long-term Engagement
 

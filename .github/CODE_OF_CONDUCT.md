@@ -4,17 +4,18 @@
 
 ## Our Commitment
 
-The Constellation Overwatch SDK project is committed to providing a professional, inclusive, and respectful environment for all contributors, regardless of background, experience level, or affiliation. As a government-owned, community-driven project, we maintain the highest standards of conduct appropriate for professional collaboration.
+The Constellation Overwatch SDK project is committed to providing a professional and respectful environment for all contributors. As a government-owned, community-driven project, we uphold strict standards of conduct appropriate for technical collaboration.
 
 ## Our Standards
 
 ### Positive Behavior
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community and mission success
-- Showing empathy towards other community members
-- Maintaining professionalism in all interactions
+- Communicate professionally with clear technical focus
+- Respect proven expertise and experience
+- Provide constructive feedback aligned with project standards
+- Prioritize mission objectives and system performance
+- Mentor others to build technical competence
+- Share knowledge that improves code quality
+- Recognize valuable contributions in public channels
 
 ### Unacceptable Behavior
 - The use of sexualized language or imagery
