@@ -11,7 +11,7 @@ Constellation Overwatch is a modular open systems architecture (MOSA) autonomy a
 
 Constellation Overwatch differentiates itself through its completely open, non-proprietary licensing and ecosystem-driven development model. Leveraging existing government-owned solutions such as the Team Awareness Kit (TAK), this platform enables real-time data fusion, collaborative autonomy, multi-domain sensor integration, and intuitive common operating picture (COP) visualization—without restrictive per-seat licenses or proprietary integration barriers.
 
-**Functionally analogous to**: Anduril's Lattice, Collins Aerospace's RapidEdge, Boeing's collaborative autonomy systems, and commercial industry Pixhawk standards, but with complete open-source accessibility.
+**Functionally analogous to** government-owned open architectures such as TAK.gov and TAK-civ, but with a core focus on platform-agnostic autonomy integration, AI-driven control, and bio-inspired neural architectures.
 
 ## Key Attributes
 
